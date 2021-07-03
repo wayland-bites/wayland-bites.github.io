@@ -27,11 +27,11 @@ layout: default
 {%- for feat in group.feats -%}
 <tr>
 <th scope="row">{{ feat.name }}</th>
-<td>{{ feat.mutter }}</td>
-<td>{{ feat.kws }}</td>
-<td>{{ feat.wlr }}</td>
-<td>{{ feat.mir }}</td>
-<td>{{ feat.e }}</td>
+<td {%- if feat.mutter == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.mutter }}</td>
+<td {%- if feat.kws == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.kws }}</td>
+<td {%- if feat.wlr == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.wlr }}</td>
+<td {%- if feat.mir == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.mir }}</td>
+<td {%- if feat.e == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.e }}</td>
 </tr>
 {%- endfor -%}
 {%- endfor -%}
