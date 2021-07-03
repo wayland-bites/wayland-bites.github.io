@@ -53,6 +53,7 @@ xorgfeats:
     feats:
       - name: _NET_SUPPORTED
       - name: _NET_CLIENT_LIST
+        wlr: wlr-foreign-toplevel-management
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS
       - name: _NET_DESKTOP_GEOMETRY
