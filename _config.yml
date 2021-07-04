@@ -54,7 +54,7 @@ xorgfeats:
       - name: WM_STATE
         usage: taskbars, docks, wmctrl, xdotool, etc.
         mutter: xdg-shell^5
-        kws: xdg-shell^5
+        kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
         mir: xdg-shell^5
         e: xdg-shell^5
@@ -64,6 +64,7 @@ xorgfeats:
       - name: _NET_CLIENT_LIST
         usage: wmctrl, rofi, devilspie, xwinmosaic, taskbars, docks, etc.
         wlr: wlr-foreign-toplevel-management^1
+        kws: KDE plasma-window-management^1
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS
       - name: _NET_DESKTOP_GEOMETRY
@@ -80,7 +81,7 @@ xorgfeats:
       - name: _NET_MOVERESIZE_WINDOW
         usage: panels, fixed-size windows, popups, Win32 apps
         mutter: xdg-shell^5^6
-        kws: xdg-shell / KDE plasma-shell ^5^6^10
+        kws: xdg-shell / KDE plasma-shell ^5^6^11
         wlr: xdg-shell / wlr-foreign-toplevel-management / wlr-layer-shell ^1^5^6
         mir: xdg-shell^5^6
         e: xdg-shell^5^6
@@ -95,7 +96,7 @@ xorgfeats:
       - name: _NET_WM_NAME
         usage: time trackers, global menus, rofi, xwinmosaic, etc.
         mutter: xdg-shell^5
-        kws: xdg-shell^5
+        kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
         mir: xdg-shell^5
         e: xdg-shell^5
@@ -126,7 +127,9 @@ xorgfeats:
       - name: _NET_WM_ICON_GEOMETRY
       - name: _NET_WM_ICON
         usage: global menus, xwinmosaic, etc.
+        kws: KDE plasma-window-management^1
       - name: _NET_WM_PID
+        kws: KDE plasma-window-management^1
       - name: _NET_WM_HANDLED_ICONS
       - name: _NET_WM_USER_TIME
       - name: _NET_WM_USER_TIME_WINDOW
@@ -162,15 +165,17 @@ xorgfeats:
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_STATE_STICKY
+        kws: KDE plasma-window-management^1
       - name: _NET_WM_STATE_MAXIMIZED_VERT
       - name: _NET_WM_STATE_MAXIMIZED_HORZ
       - name: _NET_WM_STATE_SHADED
+        kws: KDE plasma-window-management^1
       - name: _NET_WM_STATE_SKIP_TASKBAR
         usage: taskbars themselves, and other shell elements
-        kws: KDE plasma-shell ^10
+        kws: KDE plasma-shell / KDE plasma-window-management^1^11
       - name: _NET_WM_STATE_SKIP_PAGER
         usage: taskbars, and other shell elements
-        kws: KDE plasma-shell ^10
+        kws: KDE plasma-shell / KDE plasma-window-management^1^11
       - name: _NET_WM_STATE_HIDDEN
       - name: _NET_WM_STATE_FULLSCREEN
       - name: _NET_WM_STATE_ABOVE
@@ -178,7 +183,7 @@ xorgfeats:
       - name: _NET_WM_STATE_DEMANDS_ATTENTION
         usage: IMs, terminal emulators, etc.
         mutter: xdg-activation^9
-        kws: xdg-activation^9
+        kws: xdg-activation / KDE plasma-window-management^1^9
         wlr: xdg-activation^9
       - name: _NET_WM_ACTION_MOVE
       - name: _NET_WM_ACTION_RESIZE
@@ -187,38 +192,38 @@ xorgfeats:
       - name: _NET_WM_ACTION_STICK
       - name: _NET_WM_ACTION_MAXIMIZE_HORZ
         mutter: xdg-shell^5
-        kws: xdg-shell^5
+        kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_ACTION_MAXIMIZE_VERT
         mutter: xdg-shell^5
-        kws: xdg-shell^5
+        kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_ACTION_FULLSCREEN
         mutter: xdg-shell^5
-        kws: xdg-shell^5
+        kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_ACTION_CHANGE_DESKTOP
       - name: _NET_WM_ACTION_CLOSE
         mutter: xdg-shell^5
-        kws: xdg-shell^5
+        kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_ACTION_ABOVE
         mutter: xdg-shell^5
-        kws: xdg-shell / KDE plasma-shell ^5^10
+        kws: xdg-shell / KDE plasma-shell / KDE plasma-window-management^1^5^11
         wlr: xdg-shell / wlr-layer-shell ^5
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_ACTION_BELOW
         wlr: wlr-layer-shell^5
-        kws: KDE plasma-shell ^10
+        kws: KDE plasma-shell / KDE plasma-window-management^1^11
   - group: XKB
     feats:
       - name: XkbLockGroup
@@ -292,9 +297,9 @@ xorgfeats:
       kws: KDE DPMS
 
 footnotes:
-  - wlr-foreign-toplevel-management supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
+  - wlr-foreign-toplevel-management and plasma-window-management support only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
   - Requires client support. # 2
-  - xdg-shell and wlr-foreign-toplevel-management can't separately maximize horizontally or vertically. # 3
+  - xdg-shell, plasma-window-management and wlr-foreign-toplevel-management can't separately maximize horizontally or vertically. # 3
   - wlr-input-inhibitor provides screen locker functionality only (grab prevention), no complete grabbing # 4
   - xdg-shell and layer-shell provide access only to own surfaces. # 5
   - xdg-shell and layer-shell provide an agnostic approach that masks the actual output size with anchors. # 6
