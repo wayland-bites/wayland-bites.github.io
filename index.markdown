@@ -27,11 +27,19 @@ layout: default
 {%- for feat in group.feats -%}
 <tr>
 <th scope="row">{{ feat.name }}</th>
-<td {%- if feat.mutter == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.mutter }}</td>
-<td {%- if feat.kws == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.kws }}</td>
-<td {%- if feat.wlr == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.wlr }}</td>
-<td {%- if feat.mir == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.mir }}</td>
-<td {%- if feat.e == "-" -%}{% raw %} {% endraw %} class="wl-cell-bites" {%- endif -%}>{{ feat.e }}</td>
+{%- assign cells = "" | split: ',' -%}
+{%- assign cells = cells | push: feat.mutter -%}
+{%- assign cells = cells | push: feat.kws -%}
+{%- assign cells = cells | push: feat.wlr -%}
+{%- assign cells = cells | push: feat.mir -%}
+{%- assign cells = cells | push: feat.e -%}
+{%- for cell in cells -%}
+<td
+{%- if cell == "-" -%}
+{% raw %} {% endraw %} class="wl-cell-bites"
+{%- endif -%}
+>{{ cell }}</td>
+{%- endfor -%}
 </tr>
 {%- endfor -%}
 {%- endfor -%}
