@@ -53,6 +53,7 @@ xorgfeats:
     feats:
       - name: _NET_SUPPORTED
       - name: _NET_CLIENT_LIST
+        usage: wmctrl, rofi, devilspie, taskbars, docks, etc.
         wlr: wlr-foreign-toplevel-management^1
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS

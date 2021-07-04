@@ -29,7 +29,16 @@ layout: default
 </tr>
 {%- for feat in group.feats -%}
 <tr>
-<th scope="row" class="wayland-bites-row-th" title="{{ feat.name }}">{{ feat.name }}</th>
+<th scope="row" class="wayland-bites-row-th" title="{{ feat.name }}">
+{%- if feat.usage -%}
+<details>
+<summary>{{ feat.name }}</summary>
+<small>{{ feat.usage }}</small>
+</details>
+{%- else -%}
+{{ feat.name }}
+{%- endif -%}
+</th>
 {%- assign cells = "" | split: ',' -%}
 {%- assign cells = cells | push: feat.mutter -%}
 {%- assign cells = cells | push: feat.kws -%}
