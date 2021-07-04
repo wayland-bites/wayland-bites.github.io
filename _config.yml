@@ -156,6 +156,14 @@ xorgfeats:
         wlr: "?"
         mir: "?"
         e: "?"
+  - group: Selections
+    feats:
+    - name: PRIMARY
+    - name: SECONDARY
+    - name: CLIPBOARD
+    - name: ConvertSelection
+    - name: Managers
+      wlr: wlr-data-control
   - group: Miscellanous
     feats:
     - name: WM crash persistence
@@ -165,6 +173,9 @@ xorgfeats:
       mutter: "-"
       kws: server-decoration
       wlr: server-decoration
+    - name: XShm (screen capture)
+      mutter: PipeWire, portals
+      wlr: wlr-export-dmabuf
 
 footnotes:
   - Supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
