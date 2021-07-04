@@ -261,6 +261,7 @@ xorgfeats:
     - name: FakeInput
       usage: xdotool
       wlr: wlr-virtual-pointer ^8
+      kws: KDE fake input
     - name: GrabControl
   - group: Miscellanous
     feats:
