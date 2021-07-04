@@ -74,7 +74,8 @@ xorgfeats:
       - name: _NET_SHOWING_DESKTOP
       - name: _NET_CLOSE_WINDOW
       - name: _NET_MOVERESIZE_WINDOW
-        wlr: wlr-foreign-toplevel-management^1
+        usage: panels, fixed-size windows, popups, Win32 apps
+        wlr: wlr-foreign-toplevel-management / wlr-layer-shell ^1^5^6
       - name: _NET_WM_MOVERESIZE
       - name: _NET_RESTACK_WINDOW
       - name: _NET_REQUEST_FRAME_EXTENTS
@@ -92,7 +93,11 @@ xorgfeats:
         wlr: wlr-foreign-toplevel-management^1
       - name: _NET_WM_ALLOWED_ACTIONS
       - name: _NET_WM_STRUT
+        usage: panels, docks
+        wlr: wlr-layer-shell^5
       - name: _NET_WM_STRUT_PARTIAL
+        usage: panels, docks
+        wlr: wlr-layer-shell^5
       - name: _NET_WM_ICON_GEOMETRY
       - name: _NET_WM_ICON
         usage: global menus, xwinmosaic, etc.
@@ -121,6 +126,7 @@ xorgfeats:
       - name: _NET_WM_WINDOW_TYPE_DND
       - name: _NET_WM_WINDOW_TYPE_NORMAL
       - name: _NET_WM_STATE_MODAL
+        wlr: wlr-layer-shell^5
       - name: _NET_WM_STATE_STICKY
       - name: _NET_WM_STATE_MAXIMIZED_VERT
       - name: _NET_WM_STATE_MAXIMIZED_HORZ
@@ -147,7 +153,9 @@ xorgfeats:
       - name: _NET_WM_ACTION_CLOSE
         wlr: wlr-foreign-toplevel-management^1
       - name: _NET_WM_ACTION_ABOVE
+        wlr: wlr-layer-shell^5
       - name: _NET_WM_ACTION_BELOW
+        wlr: wlr-layer-shell^5
   - group: XKB
     feats:
       - name: XkbLockGroup
@@ -176,8 +184,8 @@ xorgfeats:
       usage: games
     - name: Button
     - name: Keyboard
-      usage: games, screen lockers
-      wlr: wlr-input-inhibitor^4
+      usage: games, screen lockers, password prompts
+      wlr: wlr-input-inhibitor, wlr-layer-shell^4^5
     - name: Key
   - group: Queries
     feats:
@@ -204,7 +212,9 @@ xorgfeats:
       wlr: wlr-export-dmabuf
 
 footnotes:
-  - Supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
+  - wlr-foreign-toplevel-management supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
   - Requires client support. # 2
   - Can't separately maximize horizontally or vertically. # 3
-  - Screen locker functionality only (grab prevention), no complete grabbing # 4
+  - wlr-input-inhibitor provides screen locker functionality only (grab prevention), no complete grabbing # 4
+  - layer-shell provides access only to own surfaces. # 5
+  - layer-shell provides an agnostic approach that masks the actual output size with anchors. # 6
