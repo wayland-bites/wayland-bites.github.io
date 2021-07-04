@@ -170,6 +170,26 @@ xorgfeats:
     - name: Gamma
       usage: xbrightness, xgamma, redshift
       wlr: wlr-gamma-control
+  - group: Grabbing
+    feats:
+    - name: Pointer
+      usage: games
+    - name: Button
+    - name: Keyboard
+      usage: games, screen lockers
+      wlr: wlr-input-inhibitor^4
+    - name: Key
+  - group: Queries
+    feats:
+    - name: Tree
+    - name: Pointer
+      usage: oneko
+    - name: Keymap
+    - name: Font
+    - name: TextExtents
+    - name: Colors
+    - name: BestSize
+    - name: Extension
   - group: Miscellanous
     feats:
     - name: WM crash persistence
@@ -187,3 +207,4 @@ footnotes:
   - Supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
   - Requires client support. # 2
   - Can't separately maximize horizontally or vertically. # 3
+  - Screen locker functionality only (grab prevention), no complete grabbing # 4
