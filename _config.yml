@@ -164,6 +164,12 @@ xorgfeats:
     - name: ConvertSelection
     - name: Managers
       wlr: wlr-data-control
+  - group: XF86VIDMODE
+    feats:
+    - name: ModeLine
+    - name: Gamma
+      usage: xbrightness, xgamma, redshift
+      wlr: wlr-gamma-control
   - group: Miscellanous
     feats:
     - name: WM crash persistence
