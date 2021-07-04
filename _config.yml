@@ -209,7 +209,7 @@ xorgfeats:
       wlr: server-decoration
     - name: XShm (screen capture)
       mutter: PipeWire, portals
-      wlr: wlr-export-dmabuf
+      wlr: wlr-export-dmabuf / wlr-screencopy
     - name: Xinerama
       wlr: wlr-output-management
     - name: DPMS
