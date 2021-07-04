@@ -33,15 +33,36 @@ layout: default
 {%- assign cells = cells | push: feat.wlr -%}
 {%- assign cells = cells | push: feat.mir -%}
 {%- assign cells = cells | push: feat.e -%}
+
 {%- for cell in cells -%}
+
+{%- assign celltokens = cell | split: '^' -%}
+{%- assign cellcontent = celltokens[0] -%}
 <td
-{%- if cell == "-" -%}
-{% raw %} {% endraw %} class="wl-cell-bites"
+{% if cellcontent == "-" %}
+class="wl-cell-bites"
+{% elsif celltokens.size >= 2 %}
+class="wl-cell-licks"
+{% elsif cellcontent and cellcontent != "?" %}
+class="wl-cell-calm"
+{% endif %}
+>{{ cellcontent }}
+{%- if celltokens.size >= 2 -%}
+{%- assign footnoteno = celltokens[1] -%}
+<sup class="footnote-link"><a href="#footnote{{footnoteno}}">{{footnoteno}}</a></sup>
 {%- endif -%}
->{{ cell }}</td>
+</td>
 {%- endfor -%}
 </tr>
 {%- endfor -%}
 {%- endfor -%}
 </tbody>
 </table>
+
+<hr>
+{%- for footnote in site.footnotes -%}
+<small>
+  <sup id="footnote{{ forloop.index }}">{{ forloop.index }}</sup>
+  {{ footnote }}
+</small><br>
+{%- endfor -%}

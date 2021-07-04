@@ -5,5 +5,13 @@ th.intra-th {
 }
 
 td.wl-cell-bites {
-  background-color: #fff0f0;
+  background-color: #ffe0e0;
+}
+
+td.wl-cell-licks {
+  background-color: #ffffe0;
+}
+
+td.wl-cell-calm {
+  background-color: #e0ffe0;
 }
