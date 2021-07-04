@@ -139,3 +139,8 @@ xorgfeats:
         wlr: "?"
         mir: "?"
         e: "?"
+  - group: Miscellanous
+    feats:
+    - name: WM crash persistence
+      mutter: "-"
+      e: Session Recovery Extension
