@@ -245,6 +245,7 @@ xorgfeats:
       usage: games, screen lockers, password prompts
       wlr: wlr-input-inhibitor, wlr-layer-shell^4^5
     - name: Key
+      kws: KDE keystate^10
   - group: Queries
     feats:
     - name: Tree
@@ -291,3 +292,4 @@ footnotes:
   - wlr-output-power-management provides only on/off modes. # 7
   - wlr-virtual-pointer implements a pointer only, no keyboard. # 8
   - xdg-activation is constrained by explicit client-to-client IPC. # 9
+  - KDE keystate is limited to lock keys. # 10
