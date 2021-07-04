@@ -172,6 +172,10 @@ xorgfeats:
       - name: _NET_WM_STATE_ABOVE
       - name: _NET_WM_STATE_BELOW
       - name: _NET_WM_STATE_DEMANDS_ATTENTION
+        usage: IMs, terminal emulators, etc.
+        mutter: xdg-activation^9
+        kws: xdg-activation^9
+        wlr: xdg-activation^9
       - name: _NET_WM_ACTION_MOVE
       - name: _NET_WM_ACTION_RESIZE
       - name: _NET_WM_ACTION_MINIMIZE
@@ -284,3 +288,4 @@ footnotes:
   - xdg-shell and layer-shell provide an agnostic approach that masks the actual output size with anchors. # 6
   - wlr-output-power-management provides only on/off modes. # 7
   - wlr-virtual-pointer implements a pointer only, no keyboard. # 8
+  - xdg-activation is constrained by explicit client-to-client IPC. # 9
