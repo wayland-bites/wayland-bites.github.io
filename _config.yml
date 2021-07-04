@@ -49,11 +49,16 @@ theme: minima
 #   - vendor/ruby/
 
 xorgfeats:
+  - group: ICCCM
+    feats:
+      - name: WM_STATE
+        usage: taskbars, docks, wmctrl, xdotool, etc.
+        wlr: wlr-foreign-toplevel-management^1
   - group: EWMH (NetWM)
     feats:
       - name: _NET_SUPPORTED
       - name: _NET_CLIENT_LIST
-        usage: wmctrl, rofi, devilspie, taskbars, docks, etc.
+        usage: wmctrl, rofi, devilspie, xwinmosaic, taskbars, docks, etc.
         wlr: wlr-foreign-toplevel-management^1
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS
@@ -69,21 +74,28 @@ xorgfeats:
       - name: _NET_SHOWING_DESKTOP
       - name: _NET_CLOSE_WINDOW
       - name: _NET_MOVERESIZE_WINDOW
+        wlr: wlr-foreign-toplevel-management^1
       - name: _NET_WM_MOVERESIZE
       - name: _NET_RESTACK_WINDOW
       - name: _NET_REQUEST_FRAME_EXTENTS
       - name: _NET_WM_NAME
+        usage: time trackers, global menus, rofi, xwinmosaic, etc.
+        wlr: wlr-foreign-toplevel-management^1
       - name: _NET_WM_VISIBLE_NAME
+        wlr: wlr-foreign-toplevel-management^1
       - name: _NET_WM_ICON_NAME
       - name: _NET_WM_VISIBLE_ICON_NAME
       - name: _NET_WM_DESKTOP
       - name: _NET_WM_WINDOW_TYPE
       - name: _NET_WM_STATE
+        usage: taskbars, docks, wmctrl, xdotool, etc.
+        wlr: wlr-foreign-toplevel-management^1
       - name: _NET_WM_ALLOWED_ACTIONS
       - name: _NET_WM_STRUT
       - name: _NET_WM_STRUT_PARTIAL
       - name: _NET_WM_ICON_GEOMETRY
       - name: _NET_WM_ICON
+        usage: global menus, xwinmosaic, etc.
       - name: _NET_WM_PID
       - name: _NET_WM_HANDLED_ICONS
       - name: _NET_WM_USER_TIME
@@ -126,10 +138,14 @@ xorgfeats:
       - name: _NET_WM_ACTION_SHADE
       - name: _NET_WM_ACTION_STICK
       - name: _NET_WM_ACTION_MAXIMIZE_HORZ
+        wlr: wlr-foreign-toplevel-management^3
       - name: _NET_WM_ACTION_MAXIMIZE_VERT
+        wlr: wlr-foreign-toplevel-management^3
       - name: _NET_WM_ACTION_FULLSCREEN
+        wlr: wlr-foreign-toplevel-management^1
       - name: _NET_WM_ACTION_CHANGE_DESKTOP
       - name: _NET_WM_ACTION_CLOSE
+        wlr: wlr-foreign-toplevel-management^1
       - name: _NET_WM_ACTION_ABOVE
       - name: _NET_WM_ACTION_BELOW
   - group: XKB
@@ -149,3 +165,4 @@ xorgfeats:
 footnotes:
   - Supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
   - Requires client support. # 2
+  - Can't separately maximize horizontally or vertically. # 3
