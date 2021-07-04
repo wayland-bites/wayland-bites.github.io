@@ -210,6 +210,8 @@ xorgfeats:
     - name: XShm (screen capture)
       mutter: PipeWire, portals
       wlr: wlr-export-dmabuf
+    - name: Xinerama
+      wlr: wlr-output-management
 
 footnotes:
   - wlr-foreign-toplevel-management supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
