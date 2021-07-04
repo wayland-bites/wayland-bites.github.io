@@ -15,3 +15,9 @@ td.wl-cell-licks {
 td.wl-cell-calm {
   background-color: #e0ffe0;
 }
+
+th.wayland-bites-row-th {
+  max-width: 20vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

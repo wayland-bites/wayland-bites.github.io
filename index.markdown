@@ -29,7 +29,7 @@ layout: default
 </tr>
 {%- for feat in group.feats -%}
 <tr>
-<th scope="row">{{ feat.name }}</th>
+<th scope="row" class="wayland-bites-row-th" title="{{ feat.name }}">{{ feat.name }}</th>
 {%- assign cells = "" | split: ',' -%}
 {%- assign cells = cells | push: feat.mutter -%}
 {%- assign cells = cells | push: feat.kws -%}
