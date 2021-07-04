@@ -198,6 +198,12 @@ xorgfeats:
     - name: Colors
     - name: BestSize
     - name: Extension
+  - group: XTEST
+    feats:
+    - name: FakeInput
+      usage: xdotool
+      wlr: wlr-virtual-pointer ^8
+    - name: GrabControl
   - group: Miscellanous
     feats:
     - name: WM crash persistence
@@ -223,3 +229,4 @@ footnotes:
   - layer-shell provides access only to own surfaces. # 5
   - layer-shell provides an agnostic approach that masks the actual output size with anchors. # 6
   - wlr-output-power-management provides only on/off modes. # 7
+  - wlr-virtual-pointer implements a pointer only, no keyboard. # 8
