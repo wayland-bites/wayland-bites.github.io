@@ -278,6 +278,7 @@ xorgfeats:
       wlr: wlr-output-management
     - name: DPMS
       wlr: wlr-output-power-management^7
+      kws: KDE DPMS
 
 footnotes:
   - wlr-foreign-toplevel-management supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
