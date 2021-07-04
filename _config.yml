@@ -80,7 +80,7 @@ xorgfeats:
       - name: _NET_MOVERESIZE_WINDOW
         usage: panels, fixed-size windows, popups, Win32 apps
         mutter: xdg-shell^5^6
-        kws: xdg-shell^5^6
+        kws: xdg-shell / KDE plasma-shell ^5^6^10
         wlr: xdg-shell / wlr-foreign-toplevel-management / wlr-layer-shell ^1^5^6
         mir: xdg-shell^5^6
         e: xdg-shell^5^6
@@ -166,7 +166,11 @@ xorgfeats:
       - name: _NET_WM_STATE_MAXIMIZED_HORZ
       - name: _NET_WM_STATE_SHADED
       - name: _NET_WM_STATE_SKIP_TASKBAR
+        usage: taskbars themselves, and other shell elements
+        kws: KDE plasma-shell ^10
       - name: _NET_WM_STATE_SKIP_PAGER
+        usage: taskbars, and other shell elements
+        kws: KDE plasma-shell ^10
       - name: _NET_WM_STATE_HIDDEN
       - name: _NET_WM_STATE_FULLSCREEN
       - name: _NET_WM_STATE_ABOVE
@@ -208,12 +212,13 @@ xorgfeats:
         e: xdg-shell^5
       - name: _NET_WM_ACTION_ABOVE
         mutter: xdg-shell^5
-        kws: xdg-shell^5
+        kws: xdg-shell / KDE plasma-shell ^5^10
         wlr: xdg-shell / wlr-layer-shell ^5
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_ACTION_BELOW
         wlr: wlr-layer-shell^5
+        kws: KDE plasma-shell ^10
   - group: XKB
     feats:
       - name: XkbLockGroup
@@ -234,7 +239,7 @@ xorgfeats:
     feats:
     - name: ModeLine
       usage: games with strict resolution modes
-      kws: KDE output-management
+      kws: KDE output-management / KDE outputdevice
     - name: Gamma
       usage: xbrightness, xgamma, redshift
       wlr: wlr-gamma-control
@@ -281,6 +286,7 @@ xorgfeats:
       wlr: wlr-export-dmabuf / wlr-screencopy
     - name: Xinerama
       wlr: wlr-output-management
+      kws: KDE outputdevice
     - name: DPMS
       wlr: wlr-output-power-management^7
       kws: KDE DPMS
@@ -296,3 +302,4 @@ footnotes:
   - wlr-virtual-pointer implements a pointer only, no keyboard. # 8
   - xdg-activation is constrained by explicit client-to-client IPC. # 9
   - KDE keystate is limited to lock keys. # 10
+  - KDE plasma-shell is limited to manipulating own surfaces and can be registered only by one client. # 11
