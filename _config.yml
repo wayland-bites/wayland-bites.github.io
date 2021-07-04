@@ -212,6 +212,8 @@ xorgfeats:
       wlr: wlr-export-dmabuf
     - name: Xinerama
       wlr: wlr-output-management
+    - name: DPMS
+      wlr: wlr-output-power-management^7
 
 footnotes:
   - wlr-foreign-toplevel-management supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
@@ -220,3 +222,4 @@ footnotes:
   - wlr-input-inhibitor provides screen locker functionality only (grab prevention), no complete grabbing # 4
   - layer-shell provides access only to own surfaces. # 5
   - layer-shell provides an agnostic approach that masks the actual output size with anchors. # 6
+  - wlr-output-power-management provides only on/off modes. # 7
