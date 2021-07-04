@@ -4,7 +4,7 @@
 
 layout: default
 ---
-<table>
+<table class="wayland-bites-table">
 <colgroup>
 <col>
 <col span="5" class="wayland-compositor">
@@ -21,8 +21,11 @@ layout: default
 </thead>
 <tbody>
 {%- for group in site.xorgfeats -%}
-<tr>
-<th colspan="6" class="intra-th">{{ group.group }}</th>
+<tr class="intra-tr">
+<th colspan="6" class="intra-th">
+<button class="group-collapse-button">-</button>
+{{ group.group }}
+</th>
 </tr>
 {%- for feat in group.feats -%}
 <tr>
