@@ -161,6 +161,10 @@ xorgfeats:
     - name: WM crash persistence
       mutter: "-"
       e: Session Recovery Extension^2
+    - name: WM decorations
+      mutter: "-"
+      kws: server-decoration
+      wlr: server-decoration
 
 footnotes:
   - Supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
