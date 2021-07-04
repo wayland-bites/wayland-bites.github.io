@@ -21,3 +21,7 @@ th.wayland-bites-row-th {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+sup.footnote-link {
+  padding: 0 1pt;
+}

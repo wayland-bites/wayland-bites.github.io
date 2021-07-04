@@ -60,8 +60,11 @@ class="wl-cell-calm"
 {% endif %}
 >{{ cellcontent }}
 {%- if celltokens.size >= 2 -%}
-{%- assign footnoteno = celltokens[1] -%}
-<sup class="footnote-link"><a href="#footnote{{footnoteno}}">{{footnoteno}}</a></sup>
+{%- for token in celltokens -%}
+{%- if forloop.index >= 2 -%}
+<sup class="footnote-link"><a href="#footnote{{token}}">{{token}}</a></sup>
+{%- endif -%}
+{%- endfor -%}
 {%- endif -%}
 </td>
 {%- endfor -%}

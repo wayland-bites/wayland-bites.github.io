@@ -138,9 +138,9 @@ xorgfeats:
       - name: _NET_WM_ACTION_SHADE
       - name: _NET_WM_ACTION_STICK
       - name: _NET_WM_ACTION_MAXIMIZE_HORZ
-        wlr: wlr-foreign-toplevel-management^3
+        wlr: wlr-foreign-toplevel-management^1^3
       - name: _NET_WM_ACTION_MAXIMIZE_VERT
-        wlr: wlr-foreign-toplevel-management^3
+        wlr: wlr-foreign-toplevel-management^1^3
       - name: _NET_WM_ACTION_FULLSCREEN
         wlr: wlr-foreign-toplevel-management^1
       - name: _NET_WM_ACTION_CHANGE_DESKTOP
