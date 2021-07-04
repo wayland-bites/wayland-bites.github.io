@@ -233,9 +233,12 @@ xorgfeats:
   - group: XF86VIDMODE
     feats:
     - name: ModeLine
+      usage: games with strict resolution modes
+      kws: KDE output-management
     - name: Gamma
       usage: xbrightness, xgamma, redshift
       wlr: wlr-gamma-control
+      kws: KDE output-management
   - group: Grabbing
     feats:
     - name: Pointer
