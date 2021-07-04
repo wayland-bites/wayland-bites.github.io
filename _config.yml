@@ -53,7 +53,11 @@ xorgfeats:
     feats:
       - name: WM_STATE
         usage: taskbars, docks, wmctrl, xdotool, etc.
-        wlr: wlr-foreign-toplevel-management^1
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
   - group: EWMH (NetWM)
     feats:
       - name: _NET_SUPPORTED
@@ -75,22 +79,43 @@ xorgfeats:
       - name: _NET_CLOSE_WINDOW
       - name: _NET_MOVERESIZE_WINDOW
         usage: panels, fixed-size windows, popups, Win32 apps
-        wlr: wlr-foreign-toplevel-management / wlr-layer-shell ^1^5^6
+        mutter: xdg-shell^5^6
+        kws: xdg-shell^5^6
+        wlr: xdg-shell / wlr-foreign-toplevel-management / wlr-layer-shell ^1^5^6
+        mir: xdg-shell^5^6
+        e: xdg-shell^5^6
       - name: _NET_WM_MOVERESIZE
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_RESTACK_WINDOW
       - name: _NET_REQUEST_FRAME_EXTENTS
       - name: _NET_WM_NAME
         usage: time trackers, global menus, rofi, xwinmosaic, etc.
-        wlr: wlr-foreign-toplevel-management^1
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_WM_VISIBLE_NAME
-        wlr: wlr-foreign-toplevel-management^1
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_WM_ICON_NAME
       - name: _NET_WM_VISIBLE_ICON_NAME
       - name: _NET_WM_DESKTOP
       - name: _NET_WM_WINDOW_TYPE
       - name: _NET_WM_STATE
         usage: taskbars, docks, wmctrl, xdotool, etc.
-        wlr: wlr-foreign-toplevel-management^1
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_WM_ALLOWED_ACTIONS
       - name: _NET_WM_STRUT
         usage: panels, docks
@@ -107,6 +132,11 @@ xorgfeats:
       - name: _NET_WM_USER_TIME_WINDOW
       - name: _NET_FRAME_EXTENTS
       - name: _NET_WM_PING
+        mutter: xdg-shell
+        kws: xdg-shell
+        wlr: xdg-shell
+        mir: xdg-shell
+        e: xdg-shell
       - name: _NET_WM_SYNC_REQUEST
       - name: _NET_WM_SYNC_REQUEST_COUNTER
       - name: _NET_WM_FULLSCREEN_MONITORS
@@ -126,7 +156,11 @@ xorgfeats:
       - name: _NET_WM_WINDOW_TYPE_DND
       - name: _NET_WM_WINDOW_TYPE_NORMAL
       - name: _NET_WM_STATE_MODAL
-        wlr: wlr-layer-shell^5
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-layer-shell ^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_WM_STATE_STICKY
       - name: _NET_WM_STATE_MAXIMIZED_VERT
       - name: _NET_WM_STATE_MAXIMIZED_HORZ
@@ -144,16 +178,36 @@ xorgfeats:
       - name: _NET_WM_ACTION_SHADE
       - name: _NET_WM_ACTION_STICK
       - name: _NET_WM_ACTION_MAXIMIZE_HORZ
-        wlr: wlr-foreign-toplevel-management^1^3
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_WM_ACTION_MAXIMIZE_VERT
-        wlr: wlr-foreign-toplevel-management^1^3
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_WM_ACTION_FULLSCREEN
-        wlr: wlr-foreign-toplevel-management^1
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_WM_ACTION_CHANGE_DESKTOP
       - name: _NET_WM_ACTION_CLOSE
-        wlr: wlr-foreign-toplevel-management^1
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_WM_ACTION_ABOVE
-        wlr: wlr-layer-shell^5
+        mutter: xdg-shell^5
+        kws: xdg-shell^5
+        wlr: xdg-shell / wlr-layer-shell ^5
+        mir: xdg-shell^5
+        e: xdg-shell^5
       - name: _NET_WM_ACTION_BELOW
         wlr: wlr-layer-shell^5
   - group: XKB
@@ -224,9 +278,9 @@ xorgfeats:
 footnotes:
   - wlr-foreign-toplevel-management supports only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
   - Requires client support. # 2
-  - Can't separately maximize horizontally or vertically. # 3
+  - xdg-shell and wlr-foreign-toplevel-management can't separately maximize horizontally or vertically. # 3
   - wlr-input-inhibitor provides screen locker functionality only (grab prevention), no complete grabbing # 4
-  - layer-shell provides access only to own surfaces. # 5
-  - layer-shell provides an agnostic approach that masks the actual output size with anchors. # 6
+  - xdg-shell and layer-shell provide access only to own surfaces. # 5
+  - xdg-shell and layer-shell provide an agnostic approach that masks the actual output size with anchors. # 6
   - wlr-output-power-management provides only on/off modes. # 7
   - wlr-virtual-pointer implements a pointer only, no keyboard. # 8
