@@ -277,6 +277,41 @@ xorgfeats:
       wlr: wlr-virtual-pointer ^8
       kws: KDE fake input
     - name: GrabControl
+  - group: XEMBED
+    feats:
+    - name: ReparentWindow
+      usage: tray, gtk_socket plugin for Double Commander, xfce4-panel applets
+      mutter: SNI^12
+      kws: SNI^12
+      wlr: SNI^12
+      mir: SNI^12
+      e: SNI^12
+    - name: EMBEDDED_NOTIFY
+      mutter: StatusNotifierHostRegistered^12^13
+      kws: StatusNotifierHostRegistered^12^13
+      wlr: StatusNotifierHostRegistered^12^13
+      mir: StatusNotifierHostRegistered^12^13
+      e: StatusNotifierHostRegistered^12^13
+    - name: Window activation
+    - name: Focus
+    - name: Modality
+    - name: Accelerators
+  - group: System tray
+    feats:
+    - name: REQUEST_DOCK
+      usage: tray icons embedding
+      mutter: StatusNotifierItemRegistered
+      kws: StatusNotifierItemRegistered
+      wlr: StatusNotifierItemRegistered
+      mir: StatusNotifierItemRegistered
+      e: StatusNotifierItemRegistered
+    - name: MESSAGE
+      usage: balloon tooltips from tray icons
+      mutter: org.freedesktop.Notifications^14
+      kws: org.freedesktop.Notifications^14
+      wlr: org.freedesktop.Notifications^14
+      mir: org.freedesktop.Notifications^14
+      e: org.freedesktop.Notifications^14
   - group: Miscellanous
     feats:
     - name: WM crash persistence
@@ -302,10 +337,13 @@ footnotes:
   - Requires client support. # 2
   - xdg-shell, plasma-window-management and wlr-foreign-toplevel-management can't separately maximize horizontally or vertically. # 3
   - wlr-input-inhibitor provides screen locker functionality only (grab prevention), no complete grabbing # 4
-  - xdg-shell and layer-shell provide access only to own surfaces. # 5
+  - xdg-foreign, xdg-shell and layer-shell provide access only to own surfaces, or those explicitly obtained via xdg-foreign. # 5
   - xdg-shell and layer-shell provide an agnostic approach that masks the actual output size with anchors. # 6
   - wlr-output-power-management provides only on/off modes. # 7
   - wlr-virtual-pointer implements a pointer only, no keyboard. # 8
   - xdg-activation is constrained by explicit client-to-client IPC. # 9
   - KDE keystate is limited to lock keys. # 10
   - KDE plasma-shell is limited to manipulating own surfaces and can be registered only by one client. # 11
+  - SNI replaces a very narrow use of XEmbed for tray icons, provided in a declarative way over DBus. Just an icon, a tooltip, a menu of actions and a scroll event, with the appearance implemented completely by a SNI host. No arbitrary actions over a window, like handling a click position, non-square applets (like in Workrave), etc. Doesn't really depend on Wayland compositors, as they don't interfere with the possibility of other apps to become SNI hosts, but the compositors may implement a SNI host themselves. #12
+  - StatusNotifierHostRegistered is a rough replacement, as every certain item can't know if it is drawn by the host, just that the host exists. #13
+  - Freedesktop Notifications roughly replace balloon messages, as they can in no way be associated with a certain tray icon. To be honest, balloons were scarcely supported by X systray implementations too. #14
