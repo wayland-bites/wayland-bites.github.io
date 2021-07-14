@@ -258,6 +258,7 @@ xorgfeats:
       usage: games, screen lockers, password prompts
       wlr: wlr-input-inhibitor, wlr-layer-shell^4^5
     - name: Key
+      usage: global hotkeys
       kws: KDE keystate^10
   - group: Queries
     feats:
@@ -322,6 +323,7 @@ xorgfeats:
       kws: server-decoration
       wlr: server-decoration
     - name: XShm (screen capture)
+      usage: screen shooters/capturers, color pickers, screen sharing
       mutter: PipeWire, portals
       kws: KDE screencast (a PipeWire wrapper)
       wlr: wlr-export-dmabuf / wlr-screencopy
