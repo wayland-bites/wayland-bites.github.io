@@ -65,14 +65,22 @@ xorgfeats:
         usage: wmctrl, rofi, devilspie, xwinmosaic, taskbars, docks, etc.
         wlr: wlr-foreign-toplevel-management^1
         kws: KDE plasma-window-management^1
+        sway: GET_TREE
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS
+        sway: GET_WORKSPACES
       - name: _NET_DESKTOP_GEOMETRY
+        sway: GET_WORKSPACES
       - name: _NET_DESKTOP_VIEWPORT
+        sway: GET_WORKSPACES
       - name: _NET_CURRENT_DESKTOP
+        sway: GET_WORKSPACES
       - name: _NET_DESKTOP_NAMES
+        sway: GET_WORKSPACES
       - name: _NET_ACTIVE_WINDOW
+        sway: GET_TREE
       - name: _NET_WORKAREA
+        sway: GET_WORKSPACES
       - name: _NET_SUPPORTING_WM_CHECK
       - name: _NET_VIRTUAL_ROOTS
       - name: _NET_DESKTOP_LAYOUT
@@ -130,6 +138,7 @@ xorgfeats:
         kws: KDE plasma-window-management^1
       - name: _NET_WM_PID
         kws: KDE plasma-window-management^1
+        sway: GET_TREE
       - name: _NET_WM_HANDLED_ICONS
       - name: _NET_WM_USER_TIME
       - name: _NET_WM_USER_TIME_WINDOW
@@ -166,6 +175,7 @@ xorgfeats:
         e: xdg-shell^5
       - name: _NET_WM_STATE_STICKY
         kws: KDE plasma-window-management^1
+        sway: GET_TREE
       - name: _NET_WM_STATE_MAXIMIZED_VERT
       - name: _NET_WM_STATE_MAXIMIZED_HORZ
       - name: _NET_WM_STATE_SHADED
