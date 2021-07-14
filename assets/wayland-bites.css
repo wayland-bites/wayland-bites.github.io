@@ -32,6 +32,12 @@ table.wayland-bites-table td, table.wayland-bites-table th {
   overflow-wrap: break-word;
 }
 
+@media screen and (max-width: 800px) {
+  table.wayland-bites-table td, table.wayland-bites-table th {
+    padding: 0;
+  }
+}
+
 sup.footnote-link {
   padding: 0 1pt;
 }
