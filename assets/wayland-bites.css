@@ -1,3 +1,9 @@
+.wrapper {
+  max-width: 100%;
+  padding-left: .5em;
+  padding-right: .5em;
+}
+
 th.intra-th {
   padding-top: .2em;
   padding-bottom: .2em;
@@ -16,10 +22,14 @@ td.wl-cell-calm {
   background-color: #e0ffe0;
 }
 
-th.wayland-bites-row-th {
-  max-width: 20vw;
-  overflow: hidden;
-  text-overflow: ellipsis;
+th.wayland-bites-column-th, th.wayland-bites-row-th, table.wayland-bites-table td {
+  max-width: 12.5vw;
+  box-sizing: border-box;
+}
+
+table.wayland-bites-table td, table.wayland-bites-table th {
+  padding: .5em;
+  overflow-wrap: break-word;
 }
 
 sup.footnote-link {

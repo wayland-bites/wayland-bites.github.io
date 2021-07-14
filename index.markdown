@@ -11,18 +11,18 @@ layout: default
 </colgroup>
 <thead>
 <tr>
-<th scope="col" rowspan="2">X.Org</th>
-<th scope="col" rowspan="2">GNOME/Mutter</th>
-<th scope="col" colspan="2">KWindowSystem<br><small>(KWin/LXQt)</small></th>
-<th scope="col" colspan="2">wlroots<br><small>(Sway/Wayfire/etc.)</small></th>
-<th scope="col" rowspan="2">Mir<br><small>(MATE?)</small></th>
-<th scope="col" rowspan="2">Enlightenment</th>
+<th scope="col" rowspan="2" class="wayland-bites-column-th">X.Org</th>
+<th scope="col" rowspan="2" class="wayland-bites-column-th">GNOME/Mutter</th>
+<th scope="col" colspan="2" class="wayland-bites-column-th">KWindowSystem<br><small>(KWin/LXQt)</small></th>
+<th scope="col" colspan="2" class="wayland-bites-column-th">wlroots<br><small>(Sway/Wayfire/etc.)</small></th>
+<th scope="col" rowspan="2" class="wayland-bites-column-th">Mir<br><small>(MATE?)</small></th>
+<th scope="col" rowspan="2" class="wayland-bites-column-th">Enlightenment</th>
 </tr>
 <tr>
-<th>KWin</th>
-<th>any</th>
-<th>Sway (IPC)</th>
-<th>any</th>
+<th class="wayland-bites-subcolumn-th">KWin</th>
+<th class="wayland-bites-subcolumn-th">any</th>
+<th class="wayland-bites-subcolumn-th">Sway (IPC)</th>
+<th class="wayland-bites-subcolumn-th">any</th>
 </tr>
 </thead>
 <tbody>
