@@ -293,7 +293,7 @@ xorgfeats:
     - name: CompareCursor
     - name: FakeInput
       usage: xdotool, showkey
-      wlr: wlr-virtual-pointer / libinput ^8^15
+      wlr: virtual-keyboard / wlr-virtual-pointer / libinput ^15
       kws: KDE fake input / libinput^15
       mutter: libinput^15
       mir: libinput^15
@@ -363,7 +363,7 @@ footnotes:
   - wl_subcompositor, xdg-shell and layer-shell provide access only to own surfaces, or those explicitly obtained via xdg-foreign. # 5
   - xdg-shell and layer-shell provide an agnostic approach that masks the actual output size with anchors. # 6
   - wlr-output-power-management provides only on/off modes. # 7
-  - wlr-virtual-pointer implements a pointer only, no keyboard. # 8
+  - REDACTED # 8
   - xdg-activation is constrained by explicit client-to-client IPC. # 9
   - KDE keystate is limited to lock keys. # 10
   - KDE plasma-shell is limited to manipulating own surfaces and can be registered only by one client. # 11
