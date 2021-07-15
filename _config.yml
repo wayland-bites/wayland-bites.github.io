@@ -283,10 +283,15 @@ xorgfeats:
     - name: Extension
   - group: XTEST
     feats:
+    - name: GetVersion
+    - name: CompareCursor
     - name: FakeInput
-      usage: xdotool
-      wlr: wlr-virtual-pointer ^8
-      kws: KDE fake input
+      usage: xdotool, showkey
+      wlr: wlr-virtual-pointer / libinput ^8^15
+      kws: KDE fake input / libinput^15
+      mutter: libinput^15
+      mir: libinput^15
+      e: libinput^15
     - name: GrabControl
   - group: XEMBED
     feats:
@@ -359,3 +364,4 @@ footnotes:
   - SNI replaces a very narrow use of XEmbed for tray icons, provided in a declarative way over DBus. Just an icon, a tooltip, a menu of actions and a scroll event, with the appearance implemented completely by a SNI host. No arbitrary actions over a window, like handling a click position, non-square applets (like in Workrave), etc. Doesn't really depend on Wayland compositors, as they don't interfere with the possibility of other apps to become SNI hosts, but the compositors may implement a SNI host themselves. # 12
   - StatusNotifierHostRegistered is a rough replacement, as every certain item can't know if it is drawn by the host, just that the host exists. # 13
   - Freedesktop Notifications roughly replace balloon messages, as they can in no way be associated with a certain tray icon. To be honest, balloons were scarcely supported by X systray implementations too. # 14
+  - libinput requires either to add the user to the libinput group or to run the client from root: both are even less secure then the X.Org approach. Also, it works on a low level and doesn't actually have anything to do with Wayland, so things akin to XTestCompareCursorWithWindow and so wouldn't work. # 15
