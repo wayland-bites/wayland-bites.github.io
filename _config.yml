@@ -74,11 +74,11 @@ xorgfeats:
       - name: _NET_DESKTOP_VIEWPORT
         sway: GET_WORKSPACES
       - name: _NET_CURRENT_DESKTOP
-        sway: GET_WORKSPACES
+        sway: GET_WORKSPACES / workspace
       - name: _NET_DESKTOP_NAMES
         sway: GET_WORKSPACES
       - name: _NET_ACTIVE_WINDOW
-        sway: GET_TREE
+        sway: GET_TREE / focus
       - name: _NET_WORKAREA
         sway: GET_WORKSPACES
       - name: _NET_SUPPORTING_WM_CHECK
@@ -86,6 +86,7 @@ xorgfeats:
       - name: _NET_DESKTOP_LAYOUT
       - name: _NET_SHOWING_DESKTOP
       - name: _NET_CLOSE_WINDOW
+        sway: kill^16
       - name: _NET_MOVERESIZE_WINDOW
         usage: panels, fixed-size windows, popups, Win32 apps
         mutter: xdg-shell^5^6
@@ -196,10 +197,13 @@ xorgfeats:
         kws: xdg-activation / KDE plasma-window-management^1^9
         wlr: xdg-activation^9
       - name: _NET_WM_ACTION_MOVE
+        sway: move
       - name: _NET_WM_ACTION_RESIZE
+        sway: resize
       - name: _NET_WM_ACTION_MINIMIZE
       - name: _NET_WM_ACTION_SHADE
       - name: _NET_WM_ACTION_STICK
+        sway: sticky
       - name: _NET_WM_ACTION_MAXIMIZE_HORZ
         mutter: xdg-shell^5
         kws: xdg-shell / KDE plasma-window-management^1^5
@@ -218,6 +222,7 @@ xorgfeats:
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
         e: xdg-shell^5
+        sway: fullscreen
       - name: _NET_WM_ACTION_CHANGE_DESKTOP
       - name: _NET_WM_ACTION_CLOSE
         mutter: xdg-shell^5
@@ -270,6 +275,7 @@ xorgfeats:
     - name: Key
       usage: global hotkeys
       kws: KDE keystate^10
+      sway: bindsym
   - group: Queries
     feats:
     - name: Tree
@@ -365,3 +371,4 @@ footnotes:
   - StatusNotifierHostRegistered is a rough replacement, as every certain item can't know if it is drawn by the host, just that the host exists. # 13
   - Freedesktop Notifications roughly replace balloon messages, as they can in no way be associated with a certain tray icon. To be honest, balloons were scarcely supported by X systray implementations too. # 14
   - libinput requires either to add the user to the libinput group or to run the client from root: both are even less secure then the X.Org approach. Also, it works on a low level and doesn't actually have anything to do with Wayland, so things akin to XTestCompareCursorWithWindow and so wouldn't work. # 15
+  - Sway's kill command applies only to a currently focused window. # 16
