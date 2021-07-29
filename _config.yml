@@ -105,6 +105,7 @@ xorgfeats:
         e: xdg-shell^5
       - name: _NET_RESTACK_WINDOW
       - name: _NET_REQUEST_FRAME_EXTENTS
+        sway: GET_TREE
       - name: _NET_WM_NAME
         usage: time trackers, global menus, rofi, xwinmosaic, etc.
         mutter: xdg-shell^5
@@ -191,6 +192,7 @@ xorgfeats:
         usage: taskbars, and other shell elements
         kws: KDE plasma-shell / KDE plasma-window-management^1^11
       - name: _NET_WM_STATE_HIDDEN
+        mutter: /org/gnome/shell/Introspect^17
       - name: _NET_WM_STATE_FULLSCREEN
       - name: _NET_WM_STATE_ABOVE
       - name: _NET_WM_STATE_BELOW
@@ -290,6 +292,12 @@ xorgfeats:
     - name: Colors
     - name: BestSize
     - name: Extension
+  - group: Get
+    feats:
+    - name: Geometry
+      mutter: /org/gnome/shell/Introspect^17^18
+      kws: KDE plasma-window-management^1^20
+      sway: GET_TREE^19
   - group: XTEST
     feats:
     - name: GetVersion
@@ -376,3 +384,6 @@ footnotes:
   - "libinput requires either to add the user to the libinput group or to run the client from root: both are even less secure then the X.Org approach. Also, it works on a low level and doesn't actually have anything to do with Wayland, so things akin to XTestCompareCursorWithWindow and so wouldn't work." # 15
   - Sway's kill command applies only to a currently focused window. # 16
   - /org/gnome/shell/Introspect is disabled by default in gsettings; read-only access. # 17
+  - /org/gnome/shell/Introspect provides the width/height only. # 18
+  - plasma-window-management and GET_TREE don't provide the bit depth of a surface. # 19
+  - plasma-window-management doesn't provide the border width of a surface. # 20
