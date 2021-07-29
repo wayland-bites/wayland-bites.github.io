@@ -66,6 +66,7 @@ xorgfeats:
         wlr: wlr-foreign-toplevel-management^1
         kws: KDE plasma-window-management^1
         sway: GET_TREE
+        mutter: /org/gnome/shell/Introspect^17
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS
         sway: GET_WORKSPACES
@@ -78,7 +79,9 @@ xorgfeats:
       - name: _NET_DESKTOP_NAMES
         sway: GET_WORKSPACES
       - name: _NET_ACTIVE_WINDOW
+        usage: time trackers
         sway: GET_TREE / focus
+        mutter: /org/gnome/shell/Introspect^17
       - name: _NET_WORKAREA
         sway: GET_WORKSPACES
       - name: _NET_SUPPORTING_WM_CHECK
@@ -372,3 +375,4 @@ footnotes:
   - Freedesktop Notifications roughly replace balloon messages, as they can in no way be associated with a certain tray icon. To be honest, balloons were scarcely supported by X systray implementations too. # 14
   - "libinput requires either to add the user to the libinput group or to run the client from root: both are even less secure then the X.Org approach. Also, it works on a low level and doesn't actually have anything to do with Wayland, so things akin to XTestCompareCursorWithWindow and so wouldn't work." # 15
   - Sway's kill command applies only to a currently focused window. # 16
+  - /org/gnome/shell/Introspect is disabled by default in gsettings; read-only access. # 17
