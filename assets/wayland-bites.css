@@ -23,13 +23,17 @@ td.wl-cell-calm {
 }
 
 th.wayland-bites-column-th, th.wayland-bites-row-th, table.wayland-bites-table td {
-  max-width: 12.5vw;
+  max-width: 11.1vw;
   box-sizing: border-box;
 }
 
 table.wayland-bites-table td, table.wayland-bites-table th {
   padding: .5em;
   overflow-wrap: break-word;
+}
+
+table.wayland-bites-table td, th.wayland-bites-column-th, th.wayland-bites-subcolumn-th {
+  text-align: center;
 }
 
 @media screen and (max-width: 800px) {

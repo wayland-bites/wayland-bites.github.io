@@ -1,6 +1,7 @@
 window.addEventListener('load', function() {
   var table = document.querySelector('table.wayland-bites-table');
   if (table) {
+    // section collapsing button handler
     table.addEventListener('click', function(e) {
       if (e.target.tagName == 'BUTTON' &&
           e.target.classList &&
@@ -34,5 +35,34 @@ window.addEventListener('load', function() {
         }
       }
     });
+
+    // merge identical cells
+    var cells = table.querySelectorAll('td');
+    var baseCell = cells[0];
+    for (var i = 1; i < cells.length; i ++) {
+      var nextCell = baseCell.nextSibling;
+
+      if (
+        nextCell &&
+        nextCell.tagName === 'TD' &&
+        baseCell.className === nextCell.className &&
+        baseCell.innerHTML === nextCell.innerHTML
+      ) {
+        var curColspan = parseInt(baseCell.getAttribute('colspan'));
+        if (!curColspan || isNaN(curColspan)) {
+          curColspan = 1;
+        }
+
+        var addColspan = parseInt(nextCell.getAttribute('colspan'));
+        if (addColspan && !isNaN(addColspan)) {
+          curColspan += addColspan;
+          baseCell.setAttribute('colspan', curColspan);
+        }
+
+        nextCell.parentNode.removeChild(nextCell);
+      } else {
+        baseCell = cells[i];
+      }
+    }
   }
 });

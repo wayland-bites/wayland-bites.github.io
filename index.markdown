@@ -7,16 +7,17 @@ layout: default
 <table class="wayland-bites-table">
 <colgroup>
 <col>
-<col span="7" class="wayland-compositor">
+<col span="8" class="wayland-compositor">
 </colgroup>
 <thead>
 <tr>
 <th scope="col" rowspan="2" class="wayland-bites-column-th">X.Org</th>
-<th scope="col" rowspan="2" class="wayland-bites-column-th">GNOME/Mutter</th>
-<th scope="col" colspan="2" class="wayland-bites-column-th">KWindowSystem<br><small>(KWin/LXQt)</small></th>
+<th scope="col" rowspan="2" class="wayland-bites-column-th">GNOME / Mutter</th>
+<th scope="col" colspan="2" class="wayland-bites-column-th">KWindowSystem<br><small>(KWin / LXQt)</small></th>
 <th scope="col" colspan="2" class="wayland-bites-column-th">wlroots<br><small>(Sway / Wayfire / Phoc / etc.)</small></th>
-<th scope="col" rowspan="2" class="wayland-bites-column-th">Mir<br><small>(MATE?)</small></th>
+<th scope="col" rowspan="2" class="wayland-bites-column-th">Mir<br><small>(MATE)</small></th>
 <th scope="col" rowspan="2" class="wayland-bites-column-th">Enlightenment</th>
+<th scope="col" rowspan="2" class="wayland-bites-column-th">Arcan</th>
 </tr>
 <tr>
 <th class="wayland-bites-subcolumn-th">KWin</th>
@@ -28,7 +29,7 @@ layout: default
 <tbody>
 {%- for group in site.xorgfeats -%}
 <tr class="intra-tr">
-<th colspan="8" class="intra-th">
+<th colspan="9" class="intra-th">
 <button class="group-collapse-button">-</button>
 {{ group.group }}
 </th>
@@ -53,6 +54,7 @@ layout: default
 {%- assign cells = cells | push: feat.wlr -%}
 {%- assign cells = cells | push: feat.mir -%}
 {%- assign cells = cells | push: feat.e -%}
+{%- assign cells = cells | push: feat.arcan -%}
 
 {%- for cell in cells -%}
 
@@ -72,7 +74,14 @@ layout: default
 {%- endunless -%}
 {%- endif -%}
 
-{%- assign celltokens = cell | split: '^' -%}
+{%- assign thiscell = cell -%}
+{%- unless cell -%}
+{%- if feat.any -%}
+{%- assign thiscell = feat.any -%}
+{%- endif -%}
+{%- endunless -%}
+
+{%- assign celltokens = thiscell | split: '^' -%}
 {%- assign cellcontent = celltokens[0] -%}
 <td
 {% if cellcontent == "-" %}

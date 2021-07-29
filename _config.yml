@@ -304,27 +304,17 @@ xorgfeats:
     - name: CompareCursor
     - name: FakeInput
       usage: xdotool, showkey
+      any: libinput^15
       wlr: virtual-keyboard / wlr-virtual-pointer / libinput ^15
       kws: KDE fake input / libinput^15
-      mutter: libinput^15
-      mir: libinput^15
-      e: libinput^15
     - name: GrabControl
   - group: XEMBED
     feats:
     - name: ReparentWindow
       usage: tray, gtk_socket plugin for Double Commander, xfce4-panel applets
-      mutter: SNI / wl_subcompositor^5^12
-      kws: SNI / wl_subcompositor^5^12
-      wlr: SNI / wl_subcompositor^5^12
-      mir: SNI / wl_subcompositor^5^12
-      e: SNI / wl_subcompositor^5^12
+      any: SNI / wl_subcompositor^5^12
     - name: EMBEDDED_NOTIFY
-      mutter: StatusNotifierHostRegistered^12^13
-      kws: StatusNotifierHostRegistered^12^13
-      wlr: StatusNotifierHostRegistered^12^13
-      mir: StatusNotifierHostRegistered^12^13
-      e: StatusNotifierHostRegistered^12^13
+      any: StatusNotifierHostRegistered^12^13
     - name: Window activation
     - name: Focus
     - name: Modality
@@ -333,23 +323,16 @@ xorgfeats:
     feats:
     - name: REQUEST_DOCK
       usage: tray icons embedding
-      mutter: StatusNotifierItemRegistered
-      kws: StatusNotifierItemRegistered
-      wlr: StatusNotifierItemRegistered
-      mir: StatusNotifierItemRegistered
-      e: StatusNotifierItemRegistered
+      any: StatusNotifierItemRegistered
     - name: MESSAGE
       usage: balloon tooltips from tray icons
-      mutter: org.freedesktop.Notifications^14
-      kws: org.freedesktop.Notifications^14
-      wlr: org.freedesktop.Notifications^14
-      mir: org.freedesktop.Notifications^14
-      e: org.freedesktop.Notifications^14
+      any: org.freedesktop.Notifications^14
   - group: Miscellanous
     feats:
     - name: WM crash persistence
       mutter: "-"
       e: Session Recovery Extension^2
+      arcan: SHMIF
     - name: WM decorations
       mutter: "-"
       kws: server-decoration
