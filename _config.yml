@@ -67,15 +67,18 @@ xorgfeats:
         kws: KDE plasma-window-management^1
         sway: GET_TREE
         mutter: /org/gnome/shell/Introspect^17
+        e: org.enlightenment.wm.Window.List
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS
         sway: GET_WORKSPACES
+        e: org.enlightenment.wm.Desktop.GetVirtualCount
       - name: _NET_DESKTOP_GEOMETRY
         sway: GET_WORKSPACES
       - name: _NET_DESKTOP_VIEWPORT
         sway: GET_WORKSPACES
       - name: _NET_CURRENT_DESKTOP
         sway: GET_WORKSPACES / workspace
+        e: org.enlightenment.wm.Desktop.Show
       - name: _NET_DESKTOP_NAMES
         sway: GET_WORKSPACES
       - name: _NET_ACTIVE_WINDOW
@@ -87,9 +90,12 @@ xorgfeats:
       - name: _NET_SUPPORTING_WM_CHECK
       - name: _NET_VIRTUAL_ROOTS
       - name: _NET_DESKTOP_LAYOUT
+      - name: _NET_ACTIVE_WINDOW
+        e: org.enlightenment.wm.Window.Uniconify
       - name: _NET_SHOWING_DESKTOP
       - name: _NET_CLOSE_WINDOW
         sway: kill^16
+        e: org.enlightenment.wm.Window.Close
       - name: _NET_MOVERESIZE_WINDOW
         usage: panels, fixed-size windows, popups, Win32 apps
         mutter: xdg-shell^5^6
@@ -178,6 +184,8 @@ xorgfeats:
         wlr: xdg-shell / wlr-layer-shell ^5
         mir: xdg-shell^5
         e: xdg-shell^5
+      - name: _NET_WM_STATE_FOCUSED
+        e: org.enlightenment.wm.Window.Focus
       - name: _NET_WM_STATE_STICKY
         kws: KDE plasma-window-management^1
         sway: GET_TREE
@@ -206,6 +214,7 @@ xorgfeats:
       - name: _NET_WM_ACTION_RESIZE
         sway: resize
       - name: _NET_WM_ACTION_MINIMIZE
+        e: org.enlightenment.wm.Window.Iconify
       - name: _NET_WM_ACTION_SHADE
       - name: _NET_WM_ACTION_STICK
         sway: sticky
@@ -214,13 +223,13 @@ xorgfeats:
         kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
-        e: xdg-shell^5
+        e: xdg-shell / org.enlightenment.wm.Window.{M|Unm}aximize^3^5
       - name: _NET_WM_ACTION_MAXIMIZE_VERT
         mutter: xdg-shell^5
         kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
-        e: xdg-shell^5
+        e: xdg-shell / org.enlightenment.wm.Window.{M|Unm}aximize^3^5
       - name: _NET_WM_ACTION_FULLSCREEN
         mutter: xdg-shell^5
         kws: xdg-shell / KDE plasma-window-management^1^5
@@ -229,6 +238,7 @@ xorgfeats:
         e: xdg-shell^5
         sway: fullscreen
       - name: _NET_WM_ACTION_CHANGE_DESKTOP
+        e: org.enlightenment.wm.Window.SendToDesktop
       - name: _NET_WM_ACTION_CLOSE
         mutter: xdg-shell^5
         kws: xdg-shell / KDE plasma-window-management^1^5
@@ -352,7 +362,7 @@ xorgfeats:
 footnotes:
   - wlr-foreign-toplevel-management and plasma-window-management support only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
   - Requires client support. # 2
-  - xdg-shell, plasma-window-management and wlr-foreign-toplevel-management can't separately maximize horizontally or vertically. # 3
+  - xdg-shell, plasma-window-management, wlr-foreign-toplevel-management and org.enlightenment.wm.Window.{M|Unm}aximize can't separately maximize horizontally or vertically. # 3
   - wlr-input-inhibitor provides screen locker functionality only (grab prevention), no complete grabbing # 4
   - wl_subcompositor, xdg-shell and layer-shell provide access only to own surfaces, or those explicitly obtained via xdg-foreign. # 5
   - xdg-shell and layer-shell provide an agnostic approach that masks the actual output size with anchors. # 6
