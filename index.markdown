@@ -31,7 +31,7 @@ layout: default
 <tr class="intra-tr">
 <th colspan="9" class="intra-th">
 <button class="group-collapse-button">-</button>
-{{ group.group }}
+<a name="{{ group.group }}" href="#{{ group.group }}">{{ group.group }}</a>
 </th>
 </tr>
 {%- for feat in group.feats -%}
