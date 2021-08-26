@@ -334,6 +334,7 @@ xorgfeats:
     - name: REQUEST_DOCK
       usage: tray icons embedding
       any: StatusNotifierItemRegistered
+      arcan: StatusNotifierItemRegistered / SEGID_ICON
     - name: MESSAGE
       usage: balloon tooltips from tray icons
       any: org.freedesktop.Notifications^14
