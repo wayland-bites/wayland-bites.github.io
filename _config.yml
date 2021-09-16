@@ -321,7 +321,7 @@ xorgfeats:
   - group: XEMBED
     feats:
     - name: ReparentWindow
-      usage: tray, gtk_socket plugin for Double Commander, xfce4-panel applets
+      usage: tray, gtk_socket plugin for Double Commander, xfce4-panel applets, DAW plugins
       any: SNI / wl_subcompositor^5^12
     - name: EMBEDDED_NOTIFY
       any: StatusNotifierHostRegistered^12^13
