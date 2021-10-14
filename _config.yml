@@ -274,7 +274,7 @@ xorgfeats:
     feats:
     - name: ModeLine
       usage: games with strict resolution modes
-      kws: KDE output-management / KDE outputdevice
+      kws: KDE output-management / KDE outputdevice^21
     - name: Gamma
       usage: xbrightness, xgamma, redshift
       wlr: wlr-gamma-control
@@ -382,3 +382,4 @@ footnotes:
   - /org/gnome/shell/Introspect provides the width/height only. # 18
   - plasma-window-management and GET_TREE don't provide the bit depth of a surface. # 19
   - plasma-window-management doesn't provide the border width of a surface. # 20
+  - KDE output management doesn't handle HSync/VSync, though does handle VRR. # 21
