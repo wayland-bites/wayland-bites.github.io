@@ -286,8 +286,8 @@ xorgfeats:
     - name: Button
     - name: Keyboard
       usage: games, screen lockers, password prompts
-      any: xwayland-keyboard-grab
-      wlr: xwayland-keyboard-grab, wlr-input-inhibitor, wlr-layer-shell^4^5
+      mutter: xwayland-keyboard-grab
+      wlr: wlr-input-inhibitor, wlr-layer-shell^4^5
     - name: Key
       usage: global hotkeys
       kws: KDE keystate^10
