@@ -345,6 +345,7 @@ xorgfeats:
       mutter: "-"
       e: Session Recovery Extension^2
       arcan: SHMIF
+      kwin: wl_display_reconnect^2
     - name: WM decorations
       mutter: "-"
       kws: server-decoration
