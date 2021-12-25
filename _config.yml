@@ -157,6 +157,7 @@ xorgfeats:
         sway: GET_TREE
       - name: _NET_WM_HANDLED_ICONS
       - name: _NET_WM_USER_TIME
+        mutter: IdleMonitor^24
       - name: _NET_WM_USER_TIME_WINDOW
       - name: _NET_FRAME_EXTENTS
       - name: _NET_WM_PING
@@ -391,3 +392,4 @@ footnotes:
   - KDE output management doesn't handle HSync/VSync, though does handle VRR. # 21
   - Read-only access. # 22
   - Write-only access. # 23
+  - Window-agnostic information. # 24
