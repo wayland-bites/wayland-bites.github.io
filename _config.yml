@@ -70,28 +70,28 @@ xorgfeats:
         e: org.enlightenment.wm.Window.List
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS
-        sway: GET_WORKSPACES^23
+        sway: GET_WORKSPACES
         e: org.enlightenment.wm.Desktop.GetVirtualCount
         mutter: WorkspaceManager.get_n_workspaces
       - name: _NET_DESKTOP_GEOMETRY
-        sway: GET_WORKSPACES^23
+        sway: GET_WORKSPACES^22
       - name: _NET_DESKTOP_VIEWPORT
-        sway: GET_WORKSPACES^23
+        sway: GET_WORKSPACES^22
         mutter: Workspace.get_display^22
       - name: _NET_CURRENT_DESKTOP
-        sway: GET_WORKSPACES / workspace^23
+        sway: GET_WORKSPACES / workspace
         e: org.enlightenment.wm.Desktop.Show
         mutter: WorkspaceManager.get_active_workspace_index / Workspace.activate
       - name: _NET_DESKTOP_NAMES
-        sway: GET_WORKSPACES^23
+        sway: GET_WORKSPACES
         mutter: WorkspaceManager.get_workspace_by_index
       - name: _NET_ACTIVE_WINDOW
         usage: time trackers
         sway: GET_TREE / focus
         mutter: /org/gnome/shell/Introspect^17
-        e: org.enlightenment.wm.Window.Uniconify^24
+        e: org.enlightenment.wm.Window.Uniconify^23
       - name: _NET_WORKAREA
-        sway: GET_WORKSPACES^23
+        sway: GET_WORKSPACES
       - name: _NET_SUPPORTING_WM_CHECK
       - name: _NET_VIRTUAL_ROOTS
       - name: _NET_DESKTOP_LAYOUT
@@ -390,5 +390,4 @@ footnotes:
   - plasma-window-management doesn't provide the border width of a surface. # 20
   - KDE output management doesn't handle HSync/VSync, though does handle VRR. # 21
   - Read-only access. # 22
-  - GET_WORKSPACES is read-only. # 23
-  - Write-only access. # 24
+  - Write-only access. # 23
