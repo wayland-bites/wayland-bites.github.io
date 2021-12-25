@@ -89,14 +89,13 @@ xorgfeats:
         usage: time trackers
         sway: GET_TREE / focus
         mutter: /org/gnome/shell/Introspect^17
+        e: org.enlightenment.wm.Window.Uniconify^24
       - name: _NET_WORKAREA
         sway: GET_WORKSPACES^23
       - name: _NET_SUPPORTING_WM_CHECK
       - name: _NET_VIRTUAL_ROOTS
       - name: _NET_DESKTOP_LAYOUT
         mutter: WorkspaceManager.override_workspace_layout
-      - name: _NET_ACTIVE_WINDOW
-        e: org.enlightenment.wm.Window.Uniconify
       - name: _NET_SHOWING_DESKTOP
         mutter: WorkspaceManager.showing-desktop-changed^22
       - name: _NET_CLOSE_WINDOW
@@ -392,3 +391,4 @@ footnotes:
   - KDE output management doesn't handle HSync/VSync, though does handle VRR. # 21
   - Read-only access. # 22
   - GET_WORKSPACES is read-only. # 23
+  - Write-only access. # 24
