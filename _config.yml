@@ -217,10 +217,11 @@ xorgfeats:
       - name: _NET_WM_STATE_SKIP_TASKBAR
         usage: taskbars themselves, and other shell elements
         kws: KDE plasma-shell / KDE plasma-window-management^1^11
-        mutter: Window.is_skip_taskbar^26
+        mutter: Window.is_skip_taskbar / WaylandClient.{hide_from|show_in}_window_list^26^27
       - name: _NET_WM_STATE_SKIP_PAGER
         usage: taskbars, and other shell elements
         kws: KDE plasma-shell / KDE plasma-window-management^1^11
+        mutter: WaylandClient.{hide_from|show_in}_window_list^26^27
       - name: _NET_WM_STATE_HIDDEN
         mutter: /org/gnome/shell/Introspect / Window.is_hidden^17^26
       - name: _NET_WM_STATE_FULLSCREEN
@@ -418,4 +419,5 @@ footnotes:
   - Write-only access. # 23
   - Window-agnostic information. # 24
   - gnome-shell Window cannot be prohibited from becoming sticky, fullscreen, changing the desktop, going above/below, and from maximizing only horizontally or only vertically. # 25
-  - Since GNOME 41, Workspace, WorkspaceManager, IdleMonitor and Window APIs are available only to GNOME Extensions or in the unsafe mode. # 26
+  - Since GNOME 41, WaylandClient, Workspace, WorkspaceManager, IdleMonitor and Window APIs are available only to GNOME Extensions or in the unsafe mode. # 26
+  - WaylandClient controls only subprocess surfaces. # 27
