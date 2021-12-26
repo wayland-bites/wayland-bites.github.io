@@ -66,46 +66,46 @@ xorgfeats:
         wlr: wlr-foreign-toplevel-management^1
         kws: KDE plasma-window-management^1
         sway: GET_TREE
-        mutter: /org/gnome/shell/Introspect / WorkspaceManager.get_workspace_by_index & Workspace.list_windows^17
+        mutter: /org/gnome/shell/Introspect / WorkspaceManager.get_workspace_by_index & Workspace.list_windows^17^26
         e: org.enlightenment.wm.Window.List
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS
         sway: GET_WORKSPACES
         e: org.enlightenment.wm.Desktop.GetVirtualCount
-        mutter: WorkspaceManager.get_n_workspaces
+        mutter: WorkspaceManager.get_n_workspaces^26
       - name: _NET_DESKTOP_GEOMETRY
         sway: GET_WORKSPACES^22
       - name: _NET_DESKTOP_VIEWPORT
         sway: GET_WORKSPACES^22
-        mutter: Workspace.get_display^22
+        mutter: Workspace.get_display^22^26
       - name: _NET_CURRENT_DESKTOP
         sway: GET_WORKSPACES / workspace
         e: org.enlightenment.wm.Desktop.Show
-        mutter: WorkspaceManager.get_active_workspace_index / Workspace.activate
+        mutter: WorkspaceManager.get_active_workspace_index / Workspace.activate^26
       - name: _NET_DESKTOP_NAMES
         sway: GET_WORKSPACES
-        mutter: WorkspaceManager.get_workspace_by_index
+        mutter: WorkspaceManager.get_workspace_by_index^26
       - name: _NET_ACTIVE_WINDOW
         usage: time trackers
         sway: GET_TREE / focus
-        mutter: /org/gnome/shell/Introspect / Window.has_focus / Window.focus^17
+        mutter: /org/gnome/shell/Introspect / Window.has_focus / Window.focus^17^26
         e: org.enlightenment.wm.Window.Uniconify^23
       - name: _NET_WORKAREA
         sway: GET_WORKSPACES
-        mutter: Window.get_work_area_*
+        mutter: Window.get_work_area_*^26
       - name: _NET_SUPPORTING_WM_CHECK
       - name: _NET_VIRTUAL_ROOTS
       - name: _NET_DESKTOP_LAYOUT
-        mutter: WorkspaceManager.override_workspace_layout
+        mutter: WorkspaceManager.override_workspace_layout^26
       - name: _NET_SHOWING_DESKTOP
-        mutter: WorkspaceManager.showing-desktop-changed^22
+        mutter: WorkspaceManager.showing-desktop-changed^22^26
       - name: _NET_CLOSE_WINDOW
         sway: kill^16
         e: org.enlightenment.wm.Window.Close
-        mutter: Window.kill
+        mutter: Window.kill^26
       - name: _NET_MOVERESIZE_WINDOW
         usage: panels, fixed-size windows, popups, Win32 apps
-        mutter: xdg-shell / Window.move_resize_frame^5^6
+        mutter: xdg-shell / Window.move_resize_frame^5^6^26
         kws: xdg-shell / KDE plasma-shell ^5^6^11
         wlr: xdg-shell / wlr-foreign-toplevel-management / wlr-layer-shell ^1^5^6
         mir: xdg-shell^5^6
@@ -121,13 +121,13 @@ xorgfeats:
         sway: GET_TREE
       - name: _NET_WM_NAME
         usage: time trackers, global menus, rofi, xwinmosaic, etc.
-        mutter: xdg-shell / Window.get_title^5
+        mutter: xdg-shell / Window.get_title^5^26
         kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_VISIBLE_NAME
-        mutter: xdg-shell / Window.get_title^5
+        mutter: xdg-shell / Window.get_title^5^26
         kws: xdg-shell^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
         mir: xdg-shell^5
@@ -135,7 +135,7 @@ xorgfeats:
       - name: _NET_WM_ICON_NAME
       - name: _NET_WM_VISIBLE_ICON_NAME
       - name: _NET_WM_DESKTOP
-        mutter: Window.get_workspace
+        mutter: Window.get_workspace^26
       - name: _NET_WM_WINDOW_TYPE
       - name: _NET_WM_STATE
         usage: taskbars, docks, wmctrl, xdotool, etc.
@@ -145,7 +145,7 @@ xorgfeats:
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_ALLOWED_ACTIONS
-        mutter: Window.can_* / Window.allow_*^25
+        mutter: Window.can_* / Window.allow_*^25^26
       - name: _NET_WM_STRUT
         usage: panels, docks
         wlr: wlr-layer-shell^5
@@ -153,20 +153,20 @@ xorgfeats:
         usage: panels, docks
         wlr: wlr-layer-shell^5
       - name: _NET_WM_ICON_GEOMETRY
-        mutter: Window.get_icon_geometry / Window.set_icon_geometry
+        mutter: Window.get_icon_geometry / Window.set_icon_geometry^26
       - name: _NET_WM_ICON
         usage: global menus, xwinmosaic, etc.
         kws: KDE plasma-window-management^1
       - name: _NET_WM_PID
         kws: KDE plasma-window-management^1
         sway: GET_TREE
-        mutter: Window.get_pid
+        mutter: Window.get_pid^26
       - name: _NET_WM_HANDLED_ICONS
       - name: _NET_WM_USER_TIME
-        mutter: IdleMonitor / Window.get_user_time^24
+        mutter: IdleMonitor / Window.get_user_time^24^26
       - name: _NET_WM_USER_TIME_WINDOW
       - name: _NET_FRAME_EXTENTS
-        mutter: Window.get_buffer_rect / Window.get_frame_rect
+        mutter: Window.get_buffer_rect / Window.get_frame_rect^26
       - name: _NET_WM_PING
         mutter: xdg-shell
         kws: xdg-shell
@@ -181,12 +181,12 @@ xorgfeats:
       - name: _NET_WM_WINDOW_TYPE_DOCK
       - name: _NET_WM_WINDOW_TYPE_TOOLBAR
       - name: _NET_WM_WINDOW_TYPE_MENU
-        mutter: Window.get_frame_type
+        mutter: Window.get_frame_type^26
       - name: _NET_WM_WINDOW_TYPE_UTILITY
-        mutter: Window.get_frame_type
+        mutter: Window.get_frame_type^26
       - name: _NET_WM_WINDOW_TYPE_SPLASH
       - name: _NET_WM_WINDOW_TYPE_DIALOG
-        mutter: Window.get_frame_type
+        mutter: Window.get_frame_type^26
       - name: _NET_WM_WINDOW_TYPE_DROPDOWN_MENU
       - name: _NET_WM_WINDOW_TYPE_POPUP_MENU
       - name: _NET_WM_WINDOW_TYPE_TOOLTIP
@@ -194,9 +194,9 @@ xorgfeats:
       - name: _NET_WM_WINDOW_TYPE_COMBO
       - name: _NET_WM_WINDOW_TYPE_DND
       - name: _NET_WM_WINDOW_TYPE_NORMAL
-        mutter: Window.get_frame_type
+        mutter: Window.get_frame_type^26
       - name: _NET_WM_STATE_MODAL
-        mutter: xdg-shell / Window.get_frame_type^5
+        mutter: xdg-shell / Window.get_frame_type^5^26
         kws: xdg-shell^5
         wlr: xdg-shell / wlr-layer-shell ^5
         mir: xdg-shell^5
@@ -206,61 +206,61 @@ xorgfeats:
       - name: _NET_WM_STATE_STICKY
         kws: KDE plasma-window-management^1
         sway: GET_TREE
-        mutter: Window.is_always_on_all_workspaces
+        mutter: Window.is_always_on_all_workspaces^26
       - name: _NET_WM_STATE_MAXIMIZED_VERT
-        mutter: Window.get_maximized
+        mutter: Window.get_maximized^26
       - name: _NET_WM_STATE_MAXIMIZED_HORZ
-        mutter: Window.get_maximized
+        mutter: Window.get_maximized^26
       - name: _NET_WM_STATE_SHADED
         kws: KDE plasma-window-management^1
-        mutter: Window.is_shaded
+        mutter: Window.is_shaded^26
       - name: _NET_WM_STATE_SKIP_TASKBAR
         usage: taskbars themselves, and other shell elements
         kws: KDE plasma-shell / KDE plasma-window-management^1^11
-        mutter: Window.is_skip_taskbar
+        mutter: Window.is_skip_taskbar^26
       - name: _NET_WM_STATE_SKIP_PAGER
         usage: taskbars, and other shell elements
         kws: KDE plasma-shell / KDE plasma-window-management^1^11
       - name: _NET_WM_STATE_HIDDEN
-        mutter: /org/gnome/shell/Introspect / Window.is_hidden^17
+        mutter: /org/gnome/shell/Introspect / Window.is_hidden^17^26
       - name: _NET_WM_STATE_FULLSCREEN
-        mutter: Window.is_fullscreen
+        mutter: Window.is_fullscreen^26
       - name: _NET_WM_STATE_ABOVE
-        mutter: Window.is_above
+        mutter: Window.is_above^26
       - name: _NET_WM_STATE_BELOW
       - name: _NET_WM_STATE_DEMANDS_ATTENTION
         usage: IMs, terminal emulators, etc.
-        mutter: xdg-activation / Window.demands_attention / Window.set_demands_attention^9
+        mutter: xdg-activation / Window.demands_attention / Window.set_demands_attention^9^26
         kws: xdg-activation / KDE plasma-window-management^1^9
         wlr: xdg-activation^9
       - name: _NET_WM_ACTION_MOVE
         sway: move
-        mutter: Window.move_frame
+        mutter: Window.move_frame^26
       - name: _NET_WM_ACTION_RESIZE
         sway: resize
-        mutter: Window.move_resize_frame
+        mutter: Window.move_resize_frame^26
       - name: _NET_WM_ACTION_MINIMIZE
         e: org.enlightenment.wm.Window.Iconify
-        mutter: Window.minimize
+        mutter: Window.[un]minimize^26
       - name: _NET_WM_ACTION_SHADE
-        mutter: Window.shade
+        mutter: Window.shade^26
       - name: _NET_WM_ACTION_STICK
         sway: sticky
-        mutter: Window.stick
+        mutter: Window.stick^26
       - name: _NET_WM_ACTION_MAXIMIZE_HORZ
-        mutter: xdg-shell / Window.maximize^5
+        mutter: xdg-shell / Window.[un]maximize^5^26
         kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
         e: xdg-shell / org.enlightenment.wm.Window.{M|Unm}aximize^3^5
       - name: _NET_WM_ACTION_MAXIMIZE_VERT
-        mutter: xdg-shell / Window.maximize^5
+        mutter: xdg-shell / Window.[un]maximize^5^26
         kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
         e: xdg-shell / org.enlightenment.wm.Window.{M|Unm}aximize^3^5
       - name: _NET_WM_ACTION_FULLSCREEN
-        mutter: xdg-shell / Window.make_fullscreen^5
+        mutter: xdg-shell / Window.[un]make_fullscreen^5^26
         kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
@@ -268,6 +268,7 @@ xorgfeats:
         sway: fullscreen
       - name: _NET_WM_ACTION_CHANGE_DESKTOP
         e: org.enlightenment.wm.Window.SendToDesktop
+        mutter: Window.change_workspace^26
       - name: _NET_WM_ACTION_CLOSE
         mutter: xdg-shell^5
         kws: xdg-shell / KDE plasma-window-management^1^5
@@ -275,7 +276,7 @@ xorgfeats:
         mir: xdg-shell^5
         e: xdg-shell^5
       - name: _NET_WM_ACTION_ABOVE
-        mutter: xdg-shell / Window.make_above^5
+        mutter: xdg-shell / Window.[un]make_above^5^26
         kws: xdg-shell / KDE plasma-shell / KDE plasma-window-management^1^5^11
         wlr: xdg-shell / wlr-layer-shell ^5
         mir: xdg-shell^5
@@ -335,7 +336,7 @@ xorgfeats:
   - group: Get
     feats:
     - name: Geometry
-      mutter: /org/gnome/shell/Introspect / Window.get_frame_rect^17^18^19^20
+      mutter: /org/gnome/shell/Introspect / Window.get_frame_rect^17^18^19^20^26
       kws: KDE plasma-window-management^1^19^20
       sway: GET_TREE^19
   - group: XTEST
@@ -417,3 +418,4 @@ footnotes:
   - Write-only access. # 23
   - Window-agnostic information. # 24
   - gnome-shell Window cannot be prohibited from becoming sticky, fullscreen, changing the desktop, going above/below, and from maximizing only horizontally or only vertically. # 25
+  - Since GNOME 41, Workspace, WorkspaceManager, IdleMonitor and Window APIs are available only to GNOME Extensions or in the unsafe mode. # 26
