@@ -137,6 +137,7 @@ xorgfeats:
       - name: _NET_WM_DESKTOP
         mutter: Window.get_workspace^26
       - name: _NET_WM_WINDOW_TYPE
+        mutter: Window.get_window_type^26
       - name: _NET_WM_STATE
         usage: taskbars, docks, wmctrl, xdotool, etc.
         mutter: xdg-shell^5
