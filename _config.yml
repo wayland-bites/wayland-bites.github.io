@@ -73,8 +73,10 @@ xorgfeats:
         sway: GET_WORKSPACES
         e: org.enlightenment.wm.Desktop.GetVirtualCount
         mutter: WorkspaceManager.get_n_workspaces^26
+        kwin: KWin::WorkspaceWrapper::desktops^28
       - name: _NET_DESKTOP_GEOMETRY
         sway: GET_WORKSPACES^22
+        kwin: KWin::WorkspaceWrapper::desktopGridSize^28
       - name: _NET_DESKTOP_VIEWPORT
         sway: GET_WORKSPACES^22
         mutter: Workspace.get_display^22^26
@@ -82,9 +84,11 @@ xorgfeats:
         sway: GET_WORKSPACES / workspace
         e: org.enlightenment.wm.Desktop.Show
         mutter: WorkspaceManager.get_active_workspace_index / Workspace.activate^26
+        kwin: KWin::WorkspaceWrapper::currentDesktop^28
       - name: _NET_DESKTOP_NAMES
         sway: GET_WORKSPACES
         mutter: WorkspaceManager.get_workspace_by_index^26
+        kwin: KWin::WorkspaceWrapper::desktopName^28
       - name: _NET_ACTIVE_WINDOW
         usage: time trackers
         sway: GET_TREE / focus
@@ -103,6 +107,7 @@ xorgfeats:
         sway: kill^16
         e: org.enlightenment.wm.Window.Close
         mutter: Window.kill^26
+        kwin: KWin::Toplevel::closeWindow^28
       - name: _NET_MOVERESIZE_WINDOW
         usage: panels, fixed-size windows, popups, Win32 apps
         mutter: xdg-shell / Window.move_resize_frame^5^6^26
@@ -126,6 +131,7 @@ xorgfeats:
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^5
         mir: xdg-shell^5
         e: xdg-shell^5
+        kwin: KWin::Toplevel::caption^28
       - name: _NET_WM_VISIBLE_NAME
         mutter: xdg-shell / Window.get_title^5^26
         kws: xdg-shell^5
@@ -136,8 +142,10 @@ xorgfeats:
       - name: _NET_WM_VISIBLE_ICON_NAME
       - name: _NET_WM_DESKTOP
         mutter: Window.get_workspace^26
+        kwin: KWin::Toplevel::desktop^28
       - name: _NET_WM_WINDOW_TYPE
         mutter: Window.get_window_type^26
+        kwin: KWin::Toplevel::windowType^28
       - name: _NET_WM_STATE
         usage: taskbars, docks, wmctrl, xdotool, etc.
         mutter: xdg-shell^5
@@ -147,6 +155,7 @@ xorgfeats:
         e: xdg-shell^5
       - name: _NET_WM_ALLOWED_ACTIONS
         mutter: Window.can_* / Window.allow_*^25^26
+        kwin: KWin::Toplevel::{fullScreen|clos|shade|minimiz|maximiz|move|resize}able^28^29
       - name: _NET_WM_STRUT
         usage: panels, docks
         wlr: wlr-layer-shell^5
@@ -155,6 +164,7 @@ xorgfeats:
         wlr: wlr-layer-shell^5
       - name: _NET_WM_ICON_GEOMETRY
         mutter: Window.get_icon_geometry / Window.set_icon_geometry^26
+        kwin: KWin::Toplevel::iconGeometry^28
       - name: _NET_WM_ICON
         usage: global menus, xwinmosaic, etc.
         kws: KDE plasma-window-management^1
@@ -162,12 +172,14 @@ xorgfeats:
         kws: KDE plasma-window-management^1
         sway: GET_TREE
         mutter: Window.get_pid^26
+        kwin: KWin::Toplevel::pid^28
       - name: _NET_WM_HANDLED_ICONS
       - name: _NET_WM_USER_TIME
         mutter: IdleMonitor / Window.get_user_time^24^26
       - name: _NET_WM_USER_TIME_WINDOW
       - name: _NET_FRAME_EXTENTS
         mutter: Window.get_buffer_rect / Window.get_frame_rect^26
+        kwin: KWin::Toplevel::bufferGeometry / KWin::Toplevel::frameGeometry^28
       - name: _NET_WM_PING
         mutter: xdg-shell
         kws: xdg-shell
@@ -179,62 +191,87 @@ xorgfeats:
       - name: _NET_WM_FULLSCREEN_MONITORS
       - name: _NET_WM_FULL_PLACEMENT
       - name: _NET_WM_WINDOW_TYPE_DESKTOP
+        kwin: KWin::Toplevel::desktopWindow^28
       - name: _NET_WM_WINDOW_TYPE_DOCK
+        kwin: KWin::Toplevel::dock^28
       - name: _NET_WM_WINDOW_TYPE_TOOLBAR
+        kwin: KWin::Toplevel::toolbar^28
       - name: _NET_WM_WINDOW_TYPE_MENU
         mutter: Window.get_frame_type^26
+        kwin: KWin::Toplevel::menu^28
       - name: _NET_WM_WINDOW_TYPE_UTILITY
         mutter: Window.get_frame_type^26
+        kwin: KWin::Toplevel::utility^28
       - name: _NET_WM_WINDOW_TYPE_SPLASH
+        kwin: KWin::Toplevel::splash^28
       - name: _NET_WM_WINDOW_TYPE_DIALOG
         mutter: Window.get_frame_type^26
+        kwin: KWin::Toplevel::dialog^28
       - name: _NET_WM_WINDOW_TYPE_DROPDOWN_MENU
+        kwin: KWin::Toplevel::dropdownMenu^28
       - name: _NET_WM_WINDOW_TYPE_POPUP_MENU
+        kwin: KWin::Toplevel::popupMenu^28
       - name: _NET_WM_WINDOW_TYPE_TOOLTIP
+        kwin: KWin::Toplevel::tooltip^28
       - name: _NET_WM_WINDOW_TYPE_NOTIFICATION
+        kwin: KWin::Toplevel::notification^28
       - name: _NET_WM_WINDOW_TYPE_COMBO
+        kwin: KWin::Toplevel::comboBox^28
       - name: _NET_WM_WINDOW_TYPE_DND
+        kwin: KWin::Toplevel::dndIcon^28
       - name: _NET_WM_WINDOW_TYPE_NORMAL
         mutter: Window.get_frame_type^26
+        kwin: KWin::Toplevel::normalWindow^28
       - name: _NET_WM_STATE_MODAL
         mutter: xdg-shell / Window.get_frame_type^5^26
         kws: xdg-shell^5
         wlr: xdg-shell / wlr-layer-shell ^5
         mir: xdg-shell^5
         e: xdg-shell^5
+        kwin: KWin::Toplevel::modal^28
       - name: _NET_WM_STATE_FOCUSED
         e: org.enlightenment.wm.Window.Focus^23
       - name: _NET_WM_STATE_STICKY
         kws: KDE plasma-window-management^1
         sway: GET_TREE
         mutter: Window.is_always_on_all_workspaces^26
+        kwin: KWin::Toplevel::onAllDesktops^28
       - name: _NET_WM_STATE_MAXIMIZED_VERT
         mutter: Window.get_maximized^26
+        kwin: KWin::Toplevel::clientMaximizedStateChanged^28
       - name: _NET_WM_STATE_MAXIMIZED_HORZ
         mutter: Window.get_maximized^26
+        kwin: KWin::Toplevel::clientMaximizedStateChanged^28
       - name: _NET_WM_STATE_SHADED
         kws: KDE plasma-window-management^1
         mutter: Window.is_shaded^26
+        kwin: KWin::Toplevel::shade^28
       - name: _NET_WM_STATE_SKIP_TASKBAR
         usage: taskbars themselves, and other shell elements
         kws: KDE plasma-shell / KDE plasma-window-management^1^11
         mutter: Window.is_skip_taskbar / WaylandClient.{hide_from|show_in}_window_list^26^27
+        kwin: KWin::Toplevel::skipTaskbar^28
       - name: _NET_WM_STATE_SKIP_PAGER
         usage: taskbars, and other shell elements
         kws: KDE plasma-shell / KDE plasma-window-management^1^11
         mutter: WaylandClient.{hide_from|show_in}_window_list^26^27
+        kwin: KWin::Toplevel::skipPager^28
       - name: _NET_WM_STATE_HIDDEN
         mutter: /org/gnome/shell/Introspect / Window.is_hidden^17^26
       - name: _NET_WM_STATE_FULLSCREEN
         mutter: Window.is_fullscreen^26
+        kwin: KWin::Toplevel::fullScreen^28
       - name: _NET_WM_STATE_ABOVE
         mutter: Window.is_above^26
+        kwin: KWin::Toplevel::keepAbove^28
       - name: _NET_WM_STATE_BELOW
+        kwin: KWin::Toplevel::keepBelow^28
       - name: _NET_WM_STATE_DEMANDS_ATTENTION
         usage: IMs, terminal emulators, etc.
         mutter: xdg-activation / Window.demands_attention / Window.set_demands_attention^9^26
         kws: xdg-activation / KDE plasma-window-management^1^9
         wlr: xdg-activation^9
+        kwin: KWin::Toplevel::demandsAttention^28
       - name: _NET_WM_ACTION_MOVE
         sway: move
         mutter: Window.move_frame^26
@@ -244,23 +281,28 @@ xorgfeats:
       - name: _NET_WM_ACTION_MINIMIZE
         e: org.enlightenment.wm.Window.Iconify
         mutter: Window.[un]minimize^26
+        kwin: KWin::Toplevel::minimized^28
       - name: _NET_WM_ACTION_SHADE
         mutter: Window.shade^26
+        kwin: KWin::Toplevel::shade^28
       - name: _NET_WM_ACTION_STICK
         sway: sticky
         mutter: Window.stick^26
+        kwin: KWin::Toplevel::onAllDesktops^28
       - name: _NET_WM_ACTION_MAXIMIZE_HORZ
         mutter: xdg-shell / Window.[un]maximize^5^26
         kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
         e: xdg-shell / org.enlightenment.wm.Window.{M|Unm}aximize^3^5
+        kwin: KWin::Toplevel::setMaximize^28
       - name: _NET_WM_ACTION_MAXIMIZE_VERT
         mutter: xdg-shell / Window.[un]maximize^5^26
         kws: xdg-shell / KDE plasma-window-management^1^5
         wlr: xdg-shell / wlr-foreign-toplevel-management^1^3^5
         mir: xdg-shell^5
         e: xdg-shell / org.enlightenment.wm.Window.{M|Unm}aximize^3^5
+        kwin: KWin::Toplevel::setMaximize^28
       - name: _NET_WM_ACTION_FULLSCREEN
         mutter: xdg-shell / Window.[un]make_fullscreen^5^26
         kws: xdg-shell / KDE plasma-window-management^1^5
@@ -268,6 +310,7 @@ xorgfeats:
         mir: xdg-shell^5
         e: xdg-shell^5
         sway: fullscreen
+        kwin: KWin::Toplevel::fullScreen^28
       - name: _NET_WM_ACTION_CHANGE_DESKTOP
         e: org.enlightenment.wm.Window.SendToDesktop
         mutter: Window.change_workspace^26
@@ -283,9 +326,11 @@ xorgfeats:
         wlr: xdg-shell / wlr-layer-shell ^5
         mir: xdg-shell^5
         e: xdg-shell^5
+        kwin: KWin::Toplevel::keepAbove^28
       - name: _NET_WM_ACTION_BELOW
         wlr: wlr-layer-shell^5
         kws: KDE plasma-shell / KDE plasma-window-management^1^11
+        kwin: KWin::Toplevel::keepBelow^28
   - group: XKB
     feats:
       - name: XkbLockGroup
@@ -324,6 +369,7 @@ xorgfeats:
       usage: global hotkeys
       kws: KDE keystate^10
       sway: bindsym
+      kwin: registerShortcut^28
   - group: Queries
     feats:
     - name: Tree
@@ -341,6 +387,7 @@ xorgfeats:
       mutter: /org/gnome/shell/Introspect / Window.get_frame_rect^17^18^19^20^26
       kws: KDE plasma-window-management^1^19^20
       sway: GET_TREE^19
+      kwin: KWin::Toplevel::{frameGeometry|size|x|y}^28^19^20
   - group: XTEST
     feats:
     - name: GetVersion
@@ -413,8 +460,8 @@ footnotes:
   - Sway's kill command applies only to a currently focused window. # 16
   - /org/gnome/shell/Introspect is disabled by default in gsettings; read-only access. # 17
   - /org/gnome/shell/Introspect provides the width/height only. # 18
-  - Window.get_frame_rect, plasma-window-management and GET_TREE don't provide the bit depth of a surface. # 19
-  - Window.get_frame_rect, plasma-window-management doesn't provide the border width of a surface. # 20
+  - Window.get_frame_rect, KWin::Toplevel, plasma-window-management and GET_TREE don't provide the bit depth of a surface. # 19
+  - Window.get_frame_rect, KWin::Toplevel and plasma-window-management don't provide the border width of a surface. # 20
   - KDE output management doesn't handle HSync/VSync, though does handle VRR. # 21
   - Read-only access. # 22
   - Write-only access. # 23
@@ -422,3 +469,5 @@ footnotes:
   - gnome-shell Window cannot be prohibited from becoming sticky, fullscreen, changing the desktop, going above/below, and from maximizing only horizontally or only vertically. # 25
   - Since GNOME 41, WaylandClient, Workspace, WorkspaceManager, IdleMonitor and Window APIs are available only to GNOME Extensions or in the unsafe mode. # 26
   - WaylandClient controls only subprocess surfaces. # 27
+  - KWin Scripting API is available only to dedicated registered scripts. # 28
+  - KWin::Toplevel cannot be prohibited from becoming sticky, changing the desktop, going above/below, and from maximizing only horizontally or only vertically. # 29
