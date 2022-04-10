@@ -95,6 +95,7 @@ xorgfeats:
         sway: GET_TREE / focus
         mutter: /org/gnome/shell/Introspect / Window.has_focus / Window.focus^17^26
         e: org.enlightenment.wm.Window.Uniconify^23
+        kwin: KWin:WorkspaceWrapper::activeClient^28
       - name: _NET_WORKAREA
         sway: GET_WORKSPACES
         mutter: Window.get_work_area_*^26
