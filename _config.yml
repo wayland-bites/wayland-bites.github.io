@@ -325,6 +325,12 @@ xorgfeats:
         mutter: Window.can_close^26
       - name: _NET_WM_ACTION_ABOVE
       - name: _NET_WM_ACTION_BELOW
+  - group: XAPP extensions
+    feats:
+      - name: _NET_WM_XAPP_ICON_NAME
+      - name: _NET_WM_XAPP_PROGRESS
+        kwin: com.canonical.Unity.LauncherEntry^31
+      - name: _NET_WM_XAPP_PROGRESS_PULSE
   - group: XKB
     feats:
       - name: XkbLockGroup
@@ -466,3 +472,4 @@ footnotes:
   - KWin Scripting API is available only to dedicated registered scripts. # 28
   - Does not inform separately if a window is maximizable only horizontally or only vertically. # 29
   - gnome-shell Meta Window.get_frame_type() is read-only. # 30
+  - Plasma only. # 31
