@@ -91,7 +91,7 @@ xorgfeats:
         mutter: WorkspaceManager.get_workspace_by_index^26
         kwin: KWin::WorkspaceWrapper::desktopName^28
       - name: _NET_ACTIVE_WINDOW
-        usage: time trackers
+        usage: time trackers, xbrlapi
         sway: GET_TREE / focus
         mutter: /org/gnome/shell/Introspect / Window.has_focus / Window.focus^17^26
         e: org.enlightenment.wm.Window.Uniconify^23
