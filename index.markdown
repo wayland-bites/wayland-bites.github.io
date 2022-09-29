@@ -35,8 +35,16 @@ layout: default
 </th>
 </tr>
 {%- for feat in group.feats -%}
+{%- assign modes = "certain|any" | split: "|" -%}
+{%- for mode in modes -%}
+{%- assign rowspan = 1 -%}
+{%- if feat.any -%}
+{%- assign rowspan = 2 -%}
+{%- endif -%}
+{%- if rowspan == 2 or mode == 'certain' -%}
 <tr>
-<th scope="row" class="wayland-bites-row-th" title="{{ feat.name }}">
+{%- if mode == 'certain' -%}
+<th scope="row" class="wayland-bites-row-th" title="{{ feat.name }}" rowspan="{{ rowspan }}">
 {%- if feat.usage -%}
 <details>
 <summary>{{ feat.name }}</summary>
@@ -46,7 +54,9 @@ layout: default
 {{ feat.name }}
 {%- endif -%}
 </th>
+{%- endif -%}
 {%- assign cells = "" | split: ',' -%}
+{%- if mode == 'certain' -%}
 {%- assign cells = cells | push: feat.mutter -%}
 {%- assign cells = cells | push: feat.kwin -%}
 {%- assign cells = cells | push: feat.kws -%}
@@ -55,10 +65,15 @@ layout: default
 {%- assign cells = cells | push: feat.mir -%}
 {%- assign cells = cells | push: feat.e -%}
 {%- assign cells = cells | push: feat.arcan -%}
+{%- else -%}
+{%- assign cells = cells | push: feat.any -%}
+{%- endif -%}
 
 {%- for cell in cells -%}
 
 {%- assign colspan = 1 -%}
+
+{%- if mode == 'certain' -%}
 
 {%- if forloop.index == 2 or forloop.index == 4 -%}
 {%- unless cell -%}
@@ -74,14 +89,11 @@ layout: default
 {%- endunless -%}
 {%- endif -%}
 
-{%- assign thiscell = cell -%}
-{%- unless cell -%}
-{%- if feat.any -%}
-{%- assign thiscell = feat.any -%}
+{%- else -%}
+{%- assign colspan = 8 -%}
 {%- endif -%}
-{%- endunless -%}
 
-{%- assign celltokens = thiscell | split: '^' -%}
+{%- assign celltokens = cell | split: '^' -%}
 {%- assign cellcontent = celltokens[0] -%}
 <td
 {% if cellcontent == "-" %}
@@ -103,6 +115,8 @@ class="wl-cell-calm"
 </td>
 {%- endfor -%}
 </tr>
+{%- endif -%}
+{%- endfor -%}
 {%- endfor -%}
 {%- endfor -%}
 </tbody>

@@ -64,22 +64,22 @@ xorgfeats:
       - name: _NET_SUPPORTED
       - name: _NET_CLIENT_LIST
         usage: wmctrl, rofi, devilspie, xwinmosaic, taskbars, docks, etc.
-        wlr: wlr-foreign-toplevel-management / atspi_get_desktop^1^8
-        kws: KDE plasma-window-management / atspi_get_desktop^1^8
-        sway: GET_TREE / atspi_get_desktop^8
-        mutter: /org/gnome/shell/Introspect / WorkspaceManager.get_workspace_by_index & Workspace.list_windows / atspi_get_desktop^8^17^26
-        e: org.enlightenment.wm.Window.List / atspi_get_desktop^8
+        wlr: wlr-foreign-toplevel-management^1
+        kws: KDE plasma-window-management^1
+        sway: GET_TREE
+        mutter: /org/gnome/shell/Introspect / WorkspaceManager.get_workspace_by_index & Workspace.list_windows^17^26
+        e: org.enlightenment.wm.Window.List
         any: atspi_get_desktop^8
       - name: _NET_CLIENT_LIST_STACKING
       - name: _NET_NUMBER_OF_DESKTOPS
-        sway: GET_WORKSPACES / atspi_get_desktop_count^8
-        e: org.enlightenment.wm.Desktop.GetVirtualCount / atspi_get_desktop_count^8
-        mutter: WorkspaceManager.get_n_workspaces / atspi_get_desktop_count^8^26
-        kwin: KWin::WorkspaceWrapper::desktops / atspi_get_desktop_count^8^28
+        sway: GET_WORKSPACES
+        e: org.enlightenment.wm.Desktop.GetVirtualCount
+        mutter: WorkspaceManager.get_n_workspaces^26
+        kwin: KWin::WorkspaceWrapper::desktops^28
         any: atspi_get_desktop_count^8
       - name: _NET_DESKTOP_GEOMETRY
-        sway: GET_WORKSPACES / atspi_component_get_size^8^22
-        kwin: KWin::WorkspaceWrapper::desktopGridSize / atspi_component_get_size^8^28
+        sway: GET_WORKSPACES^22
+        kwin: KWin::WorkspaceWrapper::desktopGridSize^28
         any: atspi_component_get_size^8
       - name: _NET_DESKTOP_VIEWPORT
         sway: GET_WORKSPACES^22
@@ -90,9 +90,9 @@ xorgfeats:
         mutter: WorkspaceManager.get_active_workspace_index / Workspace.activate^26
         kwin: KWin::WorkspaceWrapper::currentDesktop^28
       - name: _NET_DESKTOP_NAMES
-        sway: GET_WORKSPACES / atspi_accessible_get_name^8
-        mutter: WorkspaceManager.get_workspace_by_index / atspi_accessible_get_name^8^26
-        kwin: KWin::WorkspaceWrapper::desktopName / atspi_accessible_get_name^8^28
+        sway: GET_WORKSPACES
+        mutter: WorkspaceManager.get_workspace_by_index^26
+        kwin: KWin::WorkspaceWrapper::desktopName^28
         any: atspi_accessible_get_name^8
       - name: _NET_ACTIVE_WINDOW
         usage: time trackers, xbrlapi
@@ -101,8 +101,8 @@ xorgfeats:
         e: org.enlightenment.wm.Window.Uniconify^23
         kwin: KWin:WorkspaceWrapper::activeClient^28
       - name: _NET_WORKAREA
-        sway: GET_WORKSPACES / atspi_component_get_size^8
-        mutter: Window.get_work_area_* / atspi_component_get_size^8^26
+        sway: GET_WORKSPACES
+        mutter: Window.get_work_area_*^26
         any: atspi_component_get_size^8
       - name: _NET_SUPPORTING_WM_CHECK
       - name: _NET_VIRTUAL_ROOTS
@@ -400,8 +400,8 @@ xorgfeats:
     - name: FakeInput
       usage: xdotool, showkey
       any: libinput^15
-      wlr: virtual-keyboard / wlr-virtual-pointer / libinput ^15
-      kws: KDE fake input / libinput^15
+      wlr: virtual-keyboard / wlr-virtual-pointer
+      kws: KDE fake input
     - name: GrabControl
   - group: XEMBED
     feats:
@@ -419,7 +419,7 @@ xorgfeats:
     - name: REQUEST_DOCK
       usage: tray icons embedding
       any: StatusNotifierItemRegistered
-      arcan: StatusNotifierItemRegistered / SEGID_ICON
+      arcan: SEGID_ICON
     - name: MESSAGE
       usage: balloon tooltips from tray icons
       any: org.freedesktop.Notifications^14
