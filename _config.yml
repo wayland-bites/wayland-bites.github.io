@@ -374,7 +374,8 @@ xorgfeats:
       usage: global hotkeys
       kws: KDE keystate^10
       sway: bindsym
-      kwin: registerShortcut^28
+      kwin: GlobalShortcuts portal / registerShortcut^28
+      wlr: "-"
   - group: Queries
     feats:
     - name: Tree
