@@ -399,7 +399,7 @@ xorgfeats:
     - name: GetVersion
     - name: CompareCursor
     - name: FakeInput
-      usage: xdotool, showkey
+      usage: xdotool, showkey, remote desktop
       any: libinput^15
       wlr: virtual-keyboard / wlr-virtual-pointer
       kws: KDE fake input
