@@ -336,6 +336,11 @@ xorgfeats:
       - name: _NET_WM_XAPP_PROGRESS
         kwin: com.canonical.Unity.LauncherEntry^31
       - name: _NET_WM_XAPP_PROGRESS_PULSE
+  - group: Keyboard
+    feats:
+      - name: ChangeKeyboardMapping
+        usage: layout switchers
+        mutter: ActivateInputSource^32^33
   - group: XKB
     feats:
       - name: XkbLockGroup
@@ -479,3 +484,5 @@ footnotes:
   - Does not inform separately if a window is maximizable only horizontally or only vertically. # 29
   - gnome-shell Meta Window.get_frame_type() is read-only. # 30
   - Plasma only. # 31
+  - Requires the Agism extension. #32
+  - Pre-baked input sources only. #33
