@@ -330,6 +330,7 @@ xorgfeats:
         mutter: Window.can_close^26
       - name: _NET_WM_ACTION_ABOVE
       - name: _NET_WM_ACTION_BELOW
+      - name: _NET_WM_CONTEXT_HELP
   - group: XAPP extensions
     feats:
       - name: _NET_WM_XAPP_ICON_NAME
