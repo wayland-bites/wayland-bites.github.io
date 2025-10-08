@@ -168,6 +168,7 @@ xorgfeats:
       - name: _NET_WM_ALLOWED_ACTIONS
         mutter: Window.can_* / Window.allows_*^26
         kwin: KWin::Toplevel::*able^28
+        any: xdg_toplevel::wm_capabilities
       - name: _NET_WM_STRUT
         usage: panels, docks
         wlr: wlr-layer-shell^5
