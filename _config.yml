@@ -356,8 +356,10 @@ xorgfeats:
   - group: Selections
     feats:
     - name: PRIMARY
+      any: primary-selection-unstable-v1
     - name: SECONDARY
     - name: CLIPBOARD
+      any: wl_data_device
     - name: ConvertSelection
     - name: Managers
       wlr: wlr-data-control
