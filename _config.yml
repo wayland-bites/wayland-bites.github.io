@@ -448,7 +448,7 @@ xorgfeats:
       mutter: PipeWire, portals
       kws: KDE screencast (a PipeWire wrapper)
       wlr: wlr-export-dmabuf / wlr-screencopy
-    - name: Xinerama
+    - name: XRANDR
       wlr: wlr-output-management
       kws: KDE outputdevice
     - name: DPMS
