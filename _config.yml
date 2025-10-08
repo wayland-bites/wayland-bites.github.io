@@ -429,7 +429,7 @@ xorgfeats:
       arcan: SEGID_ICON
     - name: MESSAGE
       usage: balloon tooltips from tray icons
-      any: org.freedesktop.Notifications^14
+      any: org.freedesktop.Notifications / org.freedesktop.portal.Notification^14
   - group: Miscellanous
     feats:
     - name: WM crash persistence
