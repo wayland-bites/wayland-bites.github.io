@@ -168,6 +168,7 @@ xorgfeats:
       - name: _NET_WM_ALLOWED_ACTIONS
         mutter: Window.can_* / Window.allows_*^26
         kwin: KWin::Toplevel::*able^28
+        any: xdg_toplevel::wm_capabilities
       - name: _NET_WM_STRUT
         usage: panels, docks
         wlr: wlr-layer-shell^5
@@ -180,6 +181,7 @@ xorgfeats:
       - name: _NET_WM_ICON
         usage: global menus, xwinmosaic, etc.
         kws: KDE plasma-window-management^1
+        any: xdg-toplevel-icon^35
       - name: _NET_WM_PID
         kws: KDE plasma-window-management^1
         sway: GET_TREE
@@ -334,6 +336,7 @@ xorgfeats:
   - group: XAPP extensions
     feats:
       - name: _NET_WM_XAPP_ICON_NAME
+        any: xdg-toplevel-icon^35
       - name: _NET_WM_XAPP_PROGRESS
         kwin: com.canonical.Unity.LauncherEntry^31
       - name: _NET_WM_XAPP_PROGRESS_PULSE
@@ -353,8 +356,10 @@ xorgfeats:
   - group: Selections
     feats:
     - name: PRIMARY
+      any: primary-selection-unstable-v1
     - name: SECONDARY
     - name: CLIPBOARD
+      any: wl_data_device
     - name: ConvertSelection
     - name: Managers
       wlr: wlr-data-control
@@ -414,7 +419,7 @@ xorgfeats:
     feats:
     - name: ReparentWindow
       usage: tray, gtk_socket plugin for Double Commander, xfce4-panel applets, DAW plugins
-      any: SNI / wl_subcompositor^5^12
+      any: SNI / wl_subcompositor / Casilda / libwlembed-gtk3 / Qt Wayland Compositor^5^12^34
     - name: EMBEDDED_NOTIFY
       any: StatusNotifierHostRegistered^12^13
     - name: Window activation
@@ -425,34 +430,36 @@ xorgfeats:
     feats:
     - name: REQUEST_DOCK
       usage: tray icons embedding
-      any: StatusNotifierItemRegistered
+      any: RegisterStatusNotifierItem
       arcan: SEGID_ICON
     - name: MESSAGE
       usage: balloon tooltips from tray icons
-      any: org.freedesktop.Notifications^14
+      any: org.freedesktop.Notifications / org.freedesktop.portal.Notification^14
   - group: Miscellanous
     feats:
     - name: WM crash persistence
       mutter: "-"
       e: Session Recovery Extension^2
       arcan: SHMIF
-      kwin: wl_display_reconnect^2
+      kwin: Relies on the client to reconnect
     - name: WM decorations
       mutter: "-"
-      kws: server-decoration
-      wlr: server-decoration
+      kws: xdg-decoration / kde-server-decoration
+      wlr: xdg-decoration / kde-server-decoration
     - name: XShm (screen capture)
       usage: screen shooters/capturers, color pickers, screen sharing
       mutter: PipeWire, portals
       kws: KDE screencast (a PipeWire wrapper)
       wlr: wlr-export-dmabuf / wlr-screencopy
-    - name: Xinerama
+    - name: XRANDR
       wlr: wlr-output-management
-      kws: KDE outputdevice
+      kws: kde-output-device / kde-output-management / kde-output-order
+      any: wl_output
     - name: DPMS
       wlr: wlr-output-power-management^7
       kws: KDE DPMS
     - name: _XSETTINGS_SETTINGS
+      any: org.freedesktop.portal.Settings
 
 footnotes:
   - wlr-foreign-toplevel-management and plasma-window-management support only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
@@ -488,3 +495,5 @@ footnotes:
   - Plasma only. # 31
   - Requires the Agism extension. #32
   - Pre-baked input sources only. #33
+  - Qt Wayland Compositor's intended use-case is to develop Wayland compositors for car head units, it could be used to embed foreign Wayland surface but gets very buggy. #34
+  - Set the icon for own window. #35
