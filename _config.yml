@@ -425,7 +425,7 @@ xorgfeats:
     feats:
     - name: REQUEST_DOCK
       usage: tray icons embedding
-      any: StatusNotifierItemRegistered
+      any: RegisterStatusNotifierItem
       arcan: SEGID_ICON
     - name: MESSAGE
       usage: balloon tooltips from tray icons
