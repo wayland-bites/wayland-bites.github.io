@@ -450,7 +450,8 @@ xorgfeats:
       wlr: wlr-export-dmabuf / wlr-screencopy
     - name: XRANDR
       wlr: wlr-output-management
-      kws: KDE outputdevice
+      kws: kde-output-device / kde-output-management / kde-output-order
+      any: wl_output
     - name: DPMS
       wlr: wlr-output-power-management^7
       kws: KDE DPMS
