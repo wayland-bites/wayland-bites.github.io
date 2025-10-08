@@ -453,6 +453,7 @@ xorgfeats:
       wlr: wlr-output-power-management^7
       kws: KDE DPMS
     - name: _XSETTINGS_SETTINGS
+      any: org.freedesktop.portal.Settings
 
 footnotes:
   - wlr-foreign-toplevel-management and plasma-window-management support only one client at time. Wanna a compositor-independent taskbar and something like Devilspie simultaneously? fail. # 1
