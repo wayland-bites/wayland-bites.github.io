@@ -441,8 +441,8 @@ xorgfeats:
       kwin: Relies on the client to reconnect
     - name: WM decorations
       mutter: "-"
-      kws: server-decoration
-      wlr: server-decoration
+      kws: xdg-decoration / kde-server-decoration
+      wlr: xdg-decoration / kde-server-decoration
     - name: XShm (screen capture)
       usage: screen shooters/capturers, color pickers, screen sharing
       mutter: PipeWire, portals
