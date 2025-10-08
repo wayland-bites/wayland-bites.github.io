@@ -180,6 +180,7 @@ xorgfeats:
       - name: _NET_WM_ICON
         usage: global menus, xwinmosaic, etc.
         kws: KDE plasma-window-management^1
+        any: xdg-toplevel-icon^35
       - name: _NET_WM_PID
         kws: KDE plasma-window-management^1
         sway: GET_TREE
@@ -334,6 +335,7 @@ xorgfeats:
   - group: XAPP extensions
     feats:
       - name: _NET_WM_XAPP_ICON_NAME
+        any: xdg-toplevel-icon^35
       - name: _NET_WM_XAPP_PROGRESS
         kwin: com.canonical.Unity.LauncherEntry^31
       - name: _NET_WM_XAPP_PROGRESS_PULSE
@@ -490,3 +492,4 @@ footnotes:
   - Requires the Agism extension. #32
   - Pre-baked input sources only. #33
   - Qt Wayland Compositor's intended use-case is to develop Wayland compositors for car head units, it could be used to embed foreign Wayland surface but gets very buggy. #34
+  - Set the icon for own window. #35
