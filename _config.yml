@@ -414,7 +414,7 @@ xorgfeats:
     feats:
     - name: ReparentWindow
       usage: tray, gtk_socket plugin for Double Commander, xfce4-panel applets, DAW plugins
-      any: SNI / wl_subcompositor^5^12
+      any: SNI / wl_subcompositor / Casilda / libwlembed-gtk3 / Qt Wayland Compositor^5^12^34
     - name: EMBEDDED_NOTIFY
       any: StatusNotifierHostRegistered^12^13
     - name: Window activation
@@ -489,3 +489,4 @@ footnotes:
   - Plasma only. # 31
   - Requires the Agism extension. #32
   - Pre-baked input sources only. #33
+  - Qt Wayland Compositor's intended use-case is to develop Wayland compositors for car head units, it could be used to embed foreign Wayland surface but gets very buggy. #34
